@@ -90,7 +90,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-md bg-secondary border border-sidebar-border text-portfolio-white focus:border-portfolio-darkBlue focus:ring-1 focus:ring-portfolio-darkBlue focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-muted border border-portfolio-lavender/20 text-portfolio-textGray focus:border-portfolio-lavender focus:ring-1 focus:ring-portfolio-lavender focus:outline-none"
                 placeholder="John Doe"
               />
             </div>
@@ -106,7 +106,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-md bg-secondary border border-sidebar-border text-portfolio-white focus:border-portfolio-darkBlue focus:ring-1 focus:ring-portfolio-darkBlue focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-muted border border-portfolio-lavender/20 text-portfolio-textGray focus:border-portfolio-lavender focus:ring-1 focus:ring-portfolio-lavender focus:outline-none"
                 placeholder="john.doe@example.com"
               />
             </div>
@@ -122,7 +122,7 @@ const Contact = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-md bg-secondary border border-sidebar-border text-portfolio-white focus:border-portfolio-darkBlue focus:ring-1 focus:ring-portfolio-darkBlue focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-muted border border-portfolio-lavender/20 text-portfolio-textGray focus:border-portfolio-lavender focus:ring-1 focus:ring-portfolio-lavender focus:outline-none"
                 placeholder="Project Inquiry"
               />
             </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 rounded-md bg-secondary border border-sidebar-border text-portfolio-white focus:border-portfolio-darkBlue focus:ring-1 focus:ring-portfolio-darkBlue focus:outline-none resize-none"
+                className="w-full px-4 py-3 rounded-md bg-muted border border-portfolio-lavender/20 text-portfolio-textGray focus:border-portfolio-lavender focus:ring-1 focus:ring-portfolio-lavender focus:outline-none resize-none"
                 placeholder="Your message here..."
               />
             </div>
@@ -146,7 +146,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-portfolio-darkBlue text-portfolio-white rounded-md hover:bg-opacity-90 transition-colors flex items-center justify-center"
+              className="w-full px-6 py-3 bg-portfolio-lavender text-portfolio-slateGray rounded-md hover:bg-opacity-90 transition-colors flex items-center justify-center"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -156,15 +156,15 @@ const Contact = () => {
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
           <h3 className="section-subtitle">Connect With Me</h3>
           
-          <div className="bg-secondary rounded-lg p-6 border border-sidebar-border mb-8">
+          <div className="bg-muted rounded-lg p-6 border border-portfolio-lavender/20 mb-8">
             <div className="space-y-6">
               <div className="flex items-start">
-                <Mail size={24} className="mt-1 mr-4 text-portfolio-darkBlue" />
+                <Mail size={24} className="mt-1 mr-4 text-portfolio-cyan" />
                 <div>
                   <h4 className="text-lg font-medium text-portfolio-white">Email</h4>
                   <a 
                     href="mailto:your.email@example.com" 
-                    className="text-muted-foreground hover:text-portfolio-darkBlue transition-colors"
+                    className="text-muted-foreground hover:text-portfolio-cyan transition-colors"
                   >
                     your.email@example.com
                   </a>
@@ -172,12 +172,12 @@ const Contact = () => {
               </div>
               
               <div className="flex items-start">
-                <Phone size={24} className="mt-1 mr-4 text-portfolio-darkBlue" />
+                <Phone size={24} className="mt-1 mr-4 text-portfolio-cyan" />
                 <div>
                   <h4 className="text-lg font-medium text-portfolio-white">Phone</h4>
                   <a 
                     href="tel:+1234567890" 
-                    className="text-muted-foreground hover:text-portfolio-darkBlue transition-colors"
+                    className="text-muted-foreground hover:text-portfolio-cyan transition-colors"
                   >
                     +1 (234) 567-890
                   </a>
@@ -194,7 +194,7 @@ const Contact = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-secondary border border-sidebar-border rounded-md hover:border-portfolio-darkBlue hover:text-portfolio-darkBlue transition-all"
+                className="flex items-center gap-2 px-6 py-3 bg-muted border border-portfolio-lavender/20 rounded-md hover:border-portfolio-cyan hover:text-portfolio-cyan transition-all"
               >
                 {social.icon}
                 <span>{social.name}</span>
@@ -204,7 +204,7 @@ const Contact = () => {
           
           <div className="mt-12">
             <h3 className="section-subtitle">Availability</h3>
-            <div className="bg-secondary rounded-lg p-6 border border-sidebar-border">
+            <div className="bg-muted rounded-lg p-6 border border-portfolio-lavender/20">
               <p className="text-muted-foreground">
                 I'm currently available for freelance work, part-time positions, and internships. If you have a project 
                 that you'd like to discuss, please feel free to reach out!

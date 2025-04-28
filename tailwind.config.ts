@@ -68,6 +68,11 @@ export default {
 					darkBlue: "#0A192F",
 					lightGray: "#E0E0E0",
 					white: "#FFFFFF",
+					slateGray: "#2C2C2C",
+					textGray: "#E4E4E4",
+					cyan: "#A8DADC",
+					softPink: "#FFC1CC",
+					lavender: "#B39CD0",
 				}
 			},
 			fontFamily: {

@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col justify-center min-h-[calc(100vh-6rem)] py-20 px-6 md:px-12 lg:px-16">
       <div className="max-w-4xl">
-        <p className="text-portfolio-darkBlue font-mono mb-5">Hi, my name is</p>
+        <p className="text-portfolio-cyan font-mono mb-5">Hi, my name is</p>
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-portfolio-white mb-2">
           Software Developer
         </h1>
@@ -22,13 +22,13 @@ const HeroSection = () => {
         <div className="flex flex-wrap gap-4">
           <Link 
             to="/projects" 
-            className="inline-flex items-center gap-2 px-6 py-3 bg-portfolio-darkBlue text-portfolio-white rounded-md hover:bg-opacity-90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-portfolio-lavender text-portfolio-slateGray rounded-md hover:bg-opacity-90 transition-colors"
           >
             View My Projects <ArrowRight size={16} />
           </Link>
           <Link 
             to="/contact" 
-            className="inline-flex items-center gap-2 px-6 py-3 border border-portfolio-darkBlue text-portfolio-white rounded-md hover:bg-portfolio-darkBlue/10 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-portfolio-lavender text-portfolio-textGray rounded-md hover:bg-portfolio-lavender/10 transition-colors"
           >
             Get In Touch
           </Link>
