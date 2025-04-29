@@ -29,14 +29,10 @@ const Home = () => {
   const featuredProjects = projectsData.filter(project => project.featured).slice(0, 2);
 
   return (
-    <div className="flex-1 lg:ml-64 "
-         style={{
-           background: 'linear-gradient(180deg, var(--clr-surface-a0) 0%, var(--clr-surface-a10) 100%)'
-         }}>
+    <div className="flex-1 lg:ml-64">
       <HeroSection />
 
-      <section className="section-padding"
-            >
+      <section className="section-padding">
         <div className="scroll-animation">
           <div className="flex justify-between items-center mb-10">
             <SectionTitle title="Featured Projects" subtitle="Some things I've built" />
