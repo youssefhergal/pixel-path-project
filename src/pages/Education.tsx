@@ -27,20 +27,20 @@ const Education = () => {
     <div className="page-container lg:ml-64">
       <SectionTitle title="Education" subtitle="My academic background and certifications" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
         <div>
           <h3 className="section-subtitle">Academic Background</h3>
           
-          <div className="relative border-l border-muted pl-8 space-y-12 ml-4">
+          <div className="relative border-l border-muted pl-8 space-y-12 ml-4 ">
             {educationData.map((item, index) => (
               <div 
                 key={item.id} 
-                className="scroll-animation"
+                className="scroll-animation "
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="absolute w-4 h-4 bg-portfolio-darkBlue rounded-full -left-2 mt-2 border-4 border-background"></div>
                 
-                <div className="bg-secondary rounded-lg p-6 border border-sidebar-border">
+                <div className="bg-portfolio-slateGray rounded-lg p-6 border border-sidebar-border">
                   <div className="flex flex-col md:justify-between md:items-start mb-4">
                     <h4 className="text-xl font-medium text-portfolio-white">{item.degree}</h4>
                     <p className="text-lg text-portfolio-darkBlue">{item.institution} • {item.location}</p>
@@ -77,7 +77,7 @@ const Education = () => {
             {certificationData.map((cert, index) => (
               <div 
                 key={cert.id}
-                className="scroll-animation bg-secondary rounded-lg p-6 border border-sidebar-border flex"
+                className="scroll-animation bg-portfolio-slateGray rounded-lg p-6 border border-sidebar-border flex"
                 style={{ animationDelay: `${(index + educationData.length) * 0.15}s` }}
               >
                 <div className="mr-4 text-portfolio-darkBlue">

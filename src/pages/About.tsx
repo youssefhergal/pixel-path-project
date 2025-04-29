@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -58,31 +57,28 @@ const About = () => {
           </div>
         </div>
 
-        <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
-<<<<<<< HEAD
-          <div className="rounded-lg p-6 border" style={{ backgroundColor: 'var(--clr-surface-tonal-a10)', borderColor: 'var(--clr-primary-a20)' }}>
-            <h3 className="text-xl font-medium mb-6" style={{ color: 'var(--clr-primary-a40)' }}>Skills & Technologies</h3>
-=======
-          <div className="bg-portfolio-lavender rounded-lg p-6 border border-sidebar-border">
-            <h3 className="text-xl font-medium text-portfolio-white mb-6">Skills & Technologies</h3>
->>>>>>> 595583f (WIP: local changes to About page)
-            
-            <div className="space-y-6">
-              {skills.map((skillGroup) => (
-                <div key={skillGroup.category}>
-                  <h4 className="text-lg font-medium mb-3" style={{ color: 'var(--clr-primary-a30)' }}>{skillGroup.category}</h4>
-                  <div className="flex flex-wrap">
-                    {skillGroup.items.map((skill) => (
-                      <span key={skill} className="tech-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+        
+
+<div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
+  <div className="rounded-lg p-6 border bg-portfolio-lavender border-sidebar-border">
+    <h3 className="text-xl font-medium text-portfolio-white mb-6">Skills & Technologies</h3>
+    
+    <div className="space-y-6">
+      {skills.map((skillGroup) => (
+        <div key={skillGroup.category}>
+          <h4 className="text-lg font-medium mb-3" style={{ color: 'var(--clr-primary-a30)' }}>{skillGroup.category}</h4>
+          <div className="flex flex-wrap">
+            {skillGroup.items.map((skill) => (
+              <span key={skill} className="tech-badge">
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
       </div>
     </div>
   );
