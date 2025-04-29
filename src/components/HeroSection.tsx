@@ -10,9 +10,7 @@ const HeroSection = () => {
   return (
     <section 
       className="flex flex-col justify-center min-h-[calc(100vh-6rem)] py-20 px-6 md:px-12 lg:px-16" 
-      style={{ 
-        background: 'linear-gradient(180deg, var(--clr-surface-a0) 0%, var(--clr-surface-a10) 100%)'
-      }}
+      style={{ backgroundColor: 'var(--clr-surface-a0)' }}
     >
       <div className="max-w-4xl">
         <p className="mb-5 font-mono" style={{ color: 'var(--clr-primary-a30)' }}>Hi, my name is</p>
@@ -45,11 +43,12 @@ const HeroSection = () => {
           </Link>
           <Link 
             to="/contact" 
-            className="inline-flex items-center gap-2 px-6 py-3 border rounded-md transition-colors hover:bg-opacity-10 hover:bg-primary-a20"
+            className="inline-flex items-center gap-2 px-6 py-3 border rounded-md transition-colors hover:bg-opacity-10"
             style={{ 
               borderColor: 'var(--clr-primary-a20)', 
               color: 'var(--clr-light-a0)', 
-              backgroundColor: 'transparent'
+              backgroundColor: 'transparent',
+              ':hover': { backgroundColor: 'rgba(107, 140, 222, 0.1)' } /* --clr-primary-a20 with opacity */
             }}
           >
             Get In Touch

@@ -29,16 +29,17 @@ const Home = () => {
   const featuredProjects = projectsData.filter(project => project.featured).slice(0, 2);
 
   return (
-    <div className="flex-1 lg:ml-64">
+    <div className="flex-1 lg:ml-64" style={{ backgroundColor: 'var(--clr-surface-a0)' }}>
       <HeroSection />
 
-      <section className="section-padding">
+      <section className="section-padding" style={{ backgroundColor: 'var(--clr-surface-a0)' }}>
         <div className="scroll-animation">
           <div className="flex justify-between items-center mb-10">
             <SectionTitle title="Featured Projects" subtitle="Some things I've built" />
             <Link 
               to="/projects"
               className="inline-flex items-center gap-2 text-portfolio-white hover:text-portfolio-darkBlue transition-colors"
+              style={{ color: 'var(--clr-light-a0)', ':hover': { color: 'var(--clr-primary-a30)' } }}
             >
               View All <ArrowRight size={16} />
             </Link>
@@ -61,16 +62,21 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="section-padding" style={{ backgroundColor: 'var(--clr-surface-a0)' }}>
         <div className="scroll-animation">
           <SectionTitle title="Get In Touch" />
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg mb-8" style={{ color: 'var(--clr-surface-a50)' }}>
               I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll do my best to get back to you!
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-portfolio-darkBlue text-portfolio-white rounded-md hover:bg-opacity-90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md transition-colors"
+              style={{ 
+                backgroundColor: 'var(--clr-primary-a0)', 
+                color: 'var(--clr-light-a0)',
+                ':hover': { backgroundColor: 'var(--clr-primary-a10)' }
+              }}
             >
               Contact Me
             </Link>
