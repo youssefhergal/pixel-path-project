@@ -38,10 +38,8 @@ const HeroSection = () => {
           </Link>
           <Link 
             to="/contact" 
-            className="inline-flex items-center gap-2 px-6 py-3 border rounded-md transition-colors"
-            style={{ borderColor: 'var(--clr-primary-a20)', color: 'var(--clr-light-a0)', 
-                    backgroundColor: 'transparent', 
-                    ":hover": { backgroundColor: 'var(--clr-primary-a20)', opacity: 0.1 } }}
+            className="inline-flex items-center gap-2 px-6 py-3 border rounded-md transition-colors hover:bg-primary-a20 hover:bg-opacity-10"
+            style={{ borderColor: 'var(--clr-primary-a20)', color: 'var(--clr-light-a0)', backgroundColor: 'transparent' }}
           >
             Get In Touch
           </Link>

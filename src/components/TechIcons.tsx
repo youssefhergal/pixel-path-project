@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Java, ArrowRight } from 'lucide-react';
+import { Code, ArrowRight } from 'lucide-react';
 
 interface TechIconProps {
   name: string;
@@ -40,7 +40,7 @@ const TechIcons = () => {
     },
     { 
       name: 'Java', 
-      icon: <Java size={24} className="text-orange-400" />, 
+      icon: <Code size={24} className="text-orange-400" />, 
       description: 'Enterprise applications and Android development',
       animationClass: 'rotate'
     },
