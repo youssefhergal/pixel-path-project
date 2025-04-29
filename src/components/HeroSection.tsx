@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="max-w-4xl">
         <p className="mb-5 font-mono" style={{ color: 'var(--clr-primary-a30)' }}>Hi, my name is</p>
         
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2" style={{ color: 'var(--clr-primary-a50)' }}>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2" style={{ color: 'var(--clr-primary-a20)' }}>
           <AnimatedText text="Software Developer" typingSpeed={80} />
         </h1>
         
@@ -37,16 +37,20 @@ const HeroSection = () => {
             to="/projects" 
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors"
             style={{ 
-              background: 'linear-gradient(135deg, var(--clr-primary-a20), var(--clr-primary-a30))', 
-              color: 'var(--clr-surface-a0)' 
+              background: 'linear-gradient(135deg, var(--clr-primary-a0), var(--clr-primary-a20))', 
+              color: 'var(--clr-light-a0)' 
             }}
           >
             View My Projects <ArrowRight size={16} />
           </Link>
           <Link 
             to="/contact" 
-            className="inline-flex items-center gap-2 px-6 py-3 border rounded-md transition-colors hover:bg-primary-a20 hover:bg-opacity-10"
-            style={{ borderColor: 'var(--clr-primary-a20)', color: 'var(--clr-light-a0)', backgroundColor: 'transparent' }}
+            className="inline-flex items-center gap-2 px-6 py-3 border rounded-md transition-colors hover:bg-opacity-10 hover:bg-primary-a20"
+            style={{ 
+              borderColor: 'var(--clr-primary-a20)', 
+              color: 'var(--clr-light-a0)', 
+              backgroundColor: 'transparent'
+            }}
           >
             Get In Touch
           </Link>

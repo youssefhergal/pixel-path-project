@@ -46,18 +46,20 @@
     --sidebar-border: 0 0% 24%;
     --sidebar-ring: 281 28% 74%;
     
-    /* Simplified color theme focusing on dark blue and black */
+    /** Base colors */
     --clr-dark-a0: #000000;
     --clr-light-a0: #ffffff;
 
-    --clr-primary-a0: #0A192F; /* Dark blue */
-    --clr-primary-a10: #1a2740;
-    --clr-primary-a20: #2a3652;
-    --clr-primary-a30: #3a4564;
-    --clr-primary-a40: #4a5476;
-    --clr-primary-a50: #5a6487;
+    /** Theme primary colors */
+    --clr-primary-a0: #2a6ed4;
+    --clr-primary-a10: #4f7dd9;
+    --clr-primary-a20: #6b8cde;
+    --clr-primary-a30: #829be3;
+    --clr-primary-a40: #99abe8;
+    --clr-primary-a50: #aebbed;
 
-    --clr-surface-a0: #121212; /* Black */
+    /** Theme surface colors */
+    --clr-surface-a0: #121212;
     --clr-surface-a10: #282828;
     --clr-surface-a20: #3f3f3f;
     --clr-surface-a30: #575757;
@@ -95,8 +97,9 @@
 
   .section-title {
     @apply text-3xl md:text-4xl font-bold mb-8 text-portfolio-white relative 
-           after:content-[''] after:block after:w-12 after:h-1 after:bg-portfolio-lavender after:mt-2;
+           after:content-[''] after:block after:w-12 after:h-1 after:mt-2;
     color: var(--clr-primary-a50);
+    after:background-color: var(--clr-primary-a20);
   }
 
   .scroll-animation {
@@ -126,7 +129,7 @@
   }
 
   .tech-badge {
-    @apply bg-portfolio-cyan text-portfolio-slateGray text-xs py-1 px-2 rounded-md mr-2 mb-2 inline-block;
+    @apply text-xs py-1 px-2 rounded-md mr-2 mb-2 inline-block;
     background-color: var(--clr-primary-a20);
     color: var(--clr-surface-a0);
   }
