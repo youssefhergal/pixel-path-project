@@ -35,7 +35,7 @@ const Journey = () => {
           >
             <div className="absolute w-4 h-4 bg-portfolio-darkBlue rounded-full -left-2 mt-2 border-4 border-background"></div>
             
-            <div className="bg-secondary rounded-lg p-6 border border-sidebar-border">
+            <div className="bg-portfolio-lavender rounded-lg p-6 border border-sidebar-border">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
                   <h3 className="text-xl font-medium text-portfolio-white">{item.title}</h3>

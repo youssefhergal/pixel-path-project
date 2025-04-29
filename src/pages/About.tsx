@@ -59,8 +59,13 @@ const About = () => {
         </div>
 
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
+<<<<<<< HEAD
           <div className="rounded-lg p-6 border" style={{ backgroundColor: 'var(--clr-surface-tonal-a10)', borderColor: 'var(--clr-primary-a20)' }}>
             <h3 className="text-xl font-medium mb-6" style={{ color: 'var(--clr-primary-a40)' }}>Skills & Technologies</h3>
+=======
+          <div className="bg-portfolio-lavender rounded-lg p-6 border border-sidebar-border">
+            <h3 className="text-xl font-medium text-portfolio-white mb-6">Skills & Technologies</h3>
+>>>>>>> 595583f (WIP: local changes to About page)
             
             <div className="space-y-6">
               {skills.map((skillGroup) => (
