@@ -99,7 +99,7 @@
     @apply text-3xl md:text-4xl font-bold mb-8 text-portfolio-white relative 
            after:content-[''] after:block after:w-12 after:h-1 after:mt-2;
     color: var(--clr-primary-a50);
-    after:background-color: var(--clr-primary-a20);
+    after\:background-color: var(--clr-primary-a20);
   }
 
   .scroll-animation {
