@@ -1,7 +1,7 @@
+
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import TechIcons from '../components/TechIcons';
 import EncryptedReveal from '../components/EncryptedReveal';
 
 const About = () => {
@@ -50,35 +50,28 @@ const About = () => {
               <li>Technical Writing and Documentation</li>
             </ul>
           </div>
-          
-          <div className="mt-12">
-            <h3 className="section-subtitle">Technologies I Work With</h3>
-            <TechIcons />
-          </div>
         </div>
 
-        
-
-<div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
-  <div className="rounded-lg p-6 border bg-portfolio-lavender border-sidebar-border">
-    <h3 className="text-xl font-medium text-portfolio-white mb-6">Skills & Technologies</h3>
-    
-    <div className="space-y-6">
-      {skills.map((skillGroup) => (
-        <div key={skillGroup.category}>
-          <h4 className="text-lg font-medium mb-3" style={{ color: 'var(--clr-primary-a30)' }}>{skillGroup.category}</h4>
-          <div className="flex flex-wrap">
-            {skillGroup.items.map((skill) => (
-              <span key={skill} className="tech-badge">
-                {skill}
-              </span>
-            ))}
+        <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
+          <div className="rounded-lg p-6 border bg-portfolio-lavender border-sidebar-border">
+            <h3 className="text-xl font-medium text-portfolio-white mb-6">Skills & Technologies</h3>
+            
+            <div className="space-y-6">
+              {skills.map((skillGroup) => (
+                <div key={skillGroup.category}>
+                  <h4 className="text-lg font-medium mb-3" style={{ color: 'var(--clr-primary-a30)' }}>{skillGroup.category}</h4>
+                  <div className="flex flex-wrap">
+                    {skillGroup.items.map((skill) => (
+                      <span key={skill} className="tech-badge">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
       </div>
     </div>
   );
