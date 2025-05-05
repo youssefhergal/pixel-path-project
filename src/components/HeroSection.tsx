@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <section 
       className="flex flex-col justify-center min-h-[calc(100vh-6rem)] py-20 px-6 md:px-12 lg:px-16" 
-      style={{ backgroundColor: 'var(--clr-surface-a0)' }}
+
     >
       <div className="max-w-4xl">
         <p className="mb-5 font-mono" style={{ color: 'var(--clr-primary-a30)' }}>Hi, my name is</p>

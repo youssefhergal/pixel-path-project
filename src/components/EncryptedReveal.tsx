@@ -9,7 +9,7 @@ interface EncryptedRevealProps {
 
 const EncryptedReveal = ({ text, duration = 2000, className = '' }: EncryptedRevealProps) => {
   const [displayText, setDisplayText] = useState('');
-  const chars = '!<>-_\\/[]{}—=+*^?#________';
+  const chars = '!<>-_\\/[]{}—=+*^?#________01';
 
   useEffect(() => {
     let interval: NodeJS.Timeout;

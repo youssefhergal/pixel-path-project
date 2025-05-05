@@ -52,8 +52,8 @@ const Projects = () => {
                 onClick={() => setFilter(tech)}
                 className={`px-4 py-2 rounded-md whitespace-nowrap transition-colors ${
                   filter === tech 
-                    ? 'bg-portfolio-darkBlue text-portfolio-white' 
-                    : 'bg-secondary text-muted-foreground hover:bg-muted'
+                    ? 'bg-portfolio-cyan text-portfolio-white' 
+                    : 'bg-portfolio-slateGray text-muted-foreground hover:bg-portfolio-darkBlue'
                 }`}
               >
                 {tech === 'all' ? 'All Projects' : tech}
