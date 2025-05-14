@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code, ArrowRight } from 'lucide-react';
+import { Code } from 'lucide-react';
 
 interface TechIconProps {
   name: string;
@@ -11,13 +11,27 @@ interface TechIconProps {
 
 const TechIcon = ({ name, icon, description, animationClass = 'float' }: TechIconProps) => {
   return (
-    <div className="tech-icon group">
-      <div className={`${animationClass} text-primary-a30 p-2 rounded-full bg-surface-tonal-a10 border border-primary-a10/20`} style={{ color: 'var(--clr-primary-a30)', backgroundColor: 'var(--clr-surface-tonal-a10)' }}>
+    <div className="tech-icon group relative">
+      <div 
+        className={`${animationClass} p-2 rounded-full border`}
+        style={{ 
+          color: '#3D5AFE', 
+          backgroundColor: 'rgba(61, 90, 254, 0.1)', 
+          borderColor: 'rgba(61, 90, 254, 0.2)' 
+        }}
+      >
         {icon}
       </div>
-      <span className="tech-icon-name">{name}</span>
-      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-16 left-1/2 -translate-x-1/2 bg-surface-tonal-a20 p-2 rounded text-xs w-40 z-10"
-           style={{ backgroundColor: 'var(--clr-surface-tonal-a20)' }}>
+      <span 
+        className="tech-icon-name"
+        style={{ color: '#00C9A7' }}
+      >
+        {name}
+      </span>
+      <div 
+        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-16 left-1/2 -translate-x-1/2 p-2 rounded text-xs w-40 z-10"
+        style={{ backgroundColor: '#1A1A1E', color: '#F5F5F5' }}
+      >
         {description}
       </div>
     </div>

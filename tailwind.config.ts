@@ -73,6 +73,13 @@ export default {
 					cyan: "#A8DADC",
 					softPink: "#FFC1CC",
 					lavender: "#B39CD0",
+					// New color palette
+					background: "#0E0E10",
+					surface: "#1A1A1E",
+					accentPrimary: "#3D5AFE",
+					accentSecondary: "#00C9A7",
+					highlightText: "#F5F5F5",
+					mutedText: "#A0A0A0"
 				}
 			},
 			fontFamily: {
