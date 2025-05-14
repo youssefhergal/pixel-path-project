@@ -74,7 +74,7 @@ const OpenSource = () => {
       <div className="grid grid-cols-1 gap-12">
         <div className="scroll-animation">
           <h3 className="section-subtitle">Contributions</h3>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-[#A0A0A0] mb-8">
             I believe in giving back to the community. Here are some of my contributions to open source projects:
           </p>
           
@@ -82,23 +82,23 @@ const OpenSource = () => {
             {contributions.map((item, index) => (
               <div 
                 key={item.id}
-                className="bg-secondary rounded-lg p-6 border border-sidebar-border"
+                className="bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20"
               >
                 <div className="flex items-center mb-3">
-                  <Github size={20} className="mr-2 text-portfolio-darkBlue" />
-                  <h4 className="text-lg font-medium text-portfolio-white">{item.repo}</h4>
-                  <span className="ml-auto text-xs py-1 px-2 bg-portfolio-darkBlue/20 text-portfolio-lightGray rounded-full">
+                  <Github size={20} className="mr-2 text-[#3D5AFE]" />
+                  <h4 className="text-lg font-medium text-[#F5F5F5]">{item.repo}</h4>
+                  <span className="ml-auto text-xs py-1 px-2 bg-[#3D5AFE]/20 text-[#F5F5F5] rounded-full">
                     {item.type}
                   </span>
                 </div>
                 
-                <p className="text-muted-foreground mb-4">{item.description}</p>
+                <p className="text-[#A0A0A0] mb-4">{item.description}</p>
                 
                 <a 
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-portfolio-white hover:text-portfolio-darkBlue transition-colors text-sm"
+                  className="text-[#F5F5F5] hover:text-[#00C9A7] transition-colors text-sm"
                 >
                   View Pull Request →
                 </a>
@@ -109,7 +109,7 @@ const OpenSource = () => {
         
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
           <h3 className="section-subtitle">My Open Source Projects</h3>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-[#A0A0A0] mb-8">
             I maintain several open source projects that others can use in their work:
           </p>
           
@@ -117,20 +117,20 @@ const OpenSource = () => {
             {ownProjects.map((project) => (
               <div 
                 key={project.id}
-                className="bg-secondary rounded-lg p-6 border border-sidebar-border"
+                className="bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20"
               >
-                <h4 className="text-lg font-medium text-portfolio-white mb-2">{project.name}</h4>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <h4 className="text-lg font-medium text-[#F5F5F5] mb-2">{project.name}</h4>
+                <p className="text-[#A0A0A0] mb-4">{project.description}</p>
                 
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-4">
                     <div className="flex items-center">
-                      <Star size={16} className="mr-1 text-portfolio-darkBlue" />
-                      <span className="text-sm text-muted-foreground">{project.stars}</span>
+                      <Star size={16} className="mr-1 text-[#00C9A7]" />
+                      <span className="text-sm text-[#A0A0A0]">{project.stars}</span>
                     </div>
                     <div className="flex items-center">
-                      <GitFork size={16} className="mr-1 text-portfolio-darkBlue" />
-                      <span className="text-sm text-muted-foreground">{project.forks}</span>
+                      <GitFork size={16} className="mr-1 text-[#00C9A7]" />
+                      <span className="text-sm text-[#A0A0A0]">{project.forks}</span>
                     </div>
                   </div>
                   
@@ -138,7 +138,7 @@ const OpenSource = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-portfolio-white hover:text-portfolio-darkBlue transition-colors text-sm"
+                    className="text-[#F5F5F5] hover:text-[#00C9A7] transition-colors text-sm"
                   >
                     View Project →
                   </a>
@@ -150,15 +150,15 @@ const OpenSource = () => {
         
         <div className="scroll-animation" style={{ animationDelay: '0.4s' }}>
           <h3 className="section-subtitle">Get Involved</h3>
-          <div className="bg-secondary rounded-lg p-6 border border-sidebar-border">
-            <p className="text-muted-foreground mb-4">
+          <div className="bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20">
+            <p className="text-[#A0A0A0] mb-4">
               I'm always open to collaborating on interesting open source projects. If you have a project that you think I could contribute to, or if you'd like to contribute to any of my projects, please don't hesitate to reach out!
             </p>
             <a 
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-portfolio-darkBlue text-portfolio-white rounded-md hover:bg-opacity-90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#3D5AFE] text-[#F5F5F5] rounded-md hover:bg-opacity-90 transition-colors"
             >
               <Github size={18} />
               <span>Visit My GitHub</span>
