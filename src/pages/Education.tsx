@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { educationData, certificationData } from '../data/educationData';
-import { Book } from 'lucide-react';
+import { Book, GraduationCap } from 'lucide-react';
 
 const Education = () => {
   useEffect(() => {
@@ -27,37 +27,42 @@ const Education = () => {
     <div className="page-container lg:ml-64">
       <SectionTitle title="Education" subtitle="My academic background and certifications" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <h3 className="section-subtitle">Academic Background</h3>
+          <h3 className="text-xl font-medium mb-6 text-[#00C9A7]">
+            <div className="flex items-center gap-2">
+              <GraduationCap className="text-[#3D5AFE]" />
+              <span>Academic Background</span>
+            </div>
+          </h3>
           
-          <div className="relative border-l border-muted pl-8 space-y-12 ml-4 ">
+          <div className="relative border-l border-[#3D5AFE]/30 pl-8 space-y-12 ml-4">
             {educationData.map((item, index) => (
               <div 
                 key={item.id} 
-                className="scroll-animation "
+                className="scroll-animation"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="absolute w-4 h-4 bg-portfolio-darkBlue rounded-full -left-2 mt-2 border-4 border-background"></div>
+                <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10]"></div>
                 
-                <div className="bg-portfolio-slateGray rounded-lg p-6 border border-sidebar-border">
+                <div className="bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20 shadow-md shadow-[#3D5AFE]/5">
                   <div className="flex flex-col md:justify-between md:items-start mb-4">
-                    <h4 className="text-xl font-medium text-portfolio-white">{item.degree}</h4>
-                    <p className="text-lg text-portfolio-darkBlue">{item.institution} • {item.location}</p>
-                    <p className="text-muted-foreground text-sm">
+                    <h4 className="text-xl font-medium text-[#F5F5F5]">{item.degree}</h4>
+                    <p className="text-lg text-[#00C9A7]">{item.institution} • {item.location}</p>
+                    <p className="text-[#A0A0A0] text-sm">
                       {item.startDate} – {item.endDate}
                     </p>
                   </div>
                   
-                  <p className="text-muted-foreground mb-4">{item.description}</p>
+                  <p className="text-[#A0A0A0] mb-4">{item.description}</p>
                   
                   {item.achievements && item.achievements.length > 0 && (
                     <div>
-                      <h5 className="text-sm font-medium text-portfolio-white mb-2">Achievements:</h5>
-                      <ul className="space-y-1 text-sm text-muted-foreground">
+                      <h5 className="text-sm font-medium text-[#F5F5F5] mb-2">Achievements:</h5>
+                      <ul className="space-y-1 text-sm text-[#A0A0A0]">
                         {item.achievements.map((achievement, i) => (
                           <li key={i} className="flex">
-                            <span className="mr-2">▹</span>
+                            <span className="mr-2 text-[#3D5AFE]">▹</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -71,29 +76,34 @@ const Education = () => {
         </div>
         
         <div>
-          <h3 className="section-subtitle">Certifications</h3>
+          <h3 className="text-xl font-medium mb-6 text-[#00C9A7]">
+            <div className="flex items-center gap-2">
+              <Book className="text-[#3D5AFE]" />
+              <span>Certifications</span>
+            </div>
+          </h3>
           
           <div className="grid gap-6">
             {certificationData.map((cert, index) => (
               <div 
                 key={cert.id}
-                className="scroll-animation bg-portfolio-slateGray rounded-lg p-6 border border-sidebar-border flex"
+                className="scroll-animation bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20 shadow-md shadow-[#3D5AFE]/5 flex"
                 style={{ animationDelay: `${(index + educationData.length) * 0.15}s` }}
               >
-                <div className="mr-4 text-portfolio-darkBlue">
+                <div className="mr-4 text-[#00C9A7]">
                   <Book size={24} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium text-portfolio-white">{cert.title}</h4>
-                  <p className="text-portfolio-darkBlue">{cert.issuer}</p>
-                  <p className="text-muted-foreground text-sm mb-2">Issued {cert.date}</p>
+                  <h4 className="text-lg font-medium text-[#F5F5F5]">{cert.title}</h4>
+                  <p className="text-[#00C9A7]">{cert.issuer}</p>
+                  <p className="text-[#A0A0A0] text-sm mb-2">Issued {cert.date}</p>
                   
                   {cert.credentialLink && (
                     <a 
                       href={cert.credentialLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-portfolio-white hover:text-portfolio-darkBlue transition-colors"
+                      className="text-sm text-[#3D5AFE] hover:text-[#00C9A7] transition-colors"
                     >
                       View Credential →
                     </a>

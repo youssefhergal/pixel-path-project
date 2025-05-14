@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/projectsData';
+import { Filter } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState<string>('all');
@@ -44,21 +45,28 @@ const Projects = () => {
       <div className="scroll-animation">
         <SectionTitle title="Projects" subtitle="A selection of my technical work" />
         
-        <div className="mb-10 overflow-x-auto">
-          <div className="flex space-x-2 pb-2">
-            {techFilters.map((tech) => (
-              <button
-                key={tech}
-                onClick={() => setFilter(tech)}
-                className={`px-4 py-2 rounded-md whitespace-nowrap transition-colors ${
-                  filter === tech 
-                    ? 'bg-portfolio-cyan text-portfolio-white' 
-                    : 'bg-portfolio-slateGray text-muted-foreground hover:bg-portfolio-darkBlue'
-                }`}
-              >
-                {tech === 'all' ? 'All Projects' : tech}
-              </button>
-            ))}
+        <div className="mb-10">
+          <div className="flex items-center mb-4 text-[#00C9A7]">
+            <Filter size={20} className="mr-2" />
+            <h3 className="text-lg font-medium">Filter Projects</h3>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <div className="flex space-x-2 pb-2">
+              {techFilters.map((tech) => (
+                <button
+                  key={tech}
+                  onClick={() => setFilter(tech)}
+                  className={`px-4 py-2 rounded-md whitespace-nowrap transition-colors ${
+                    filter === tech 
+                      ? 'bg-[#3D5AFE] text-[#F5F5F5]' 
+                      : 'bg-[#1A1A1E] text-[#A0A0A0] hover:bg-[#3D5AFE]/20 hover:text-[#F5F5F5] border border-[#3D5AFE]/20'
+                  }`}
+                >
+                  {tech === 'all' ? 'All Projects' : tech}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -77,8 +85,9 @@ const Projects = () => {
               />
             ))
           ) : (
-            <div className="col-span-full text-center py-12 text-muted-foreground">
+            <div className="col-span-full text-center py-12 text-[#A0A0A0] bg-[#1A1A1E] rounded-lg border border-[#3D5AFE]/20 shadow-md">
               No projects match the selected filter.
+              <p className="mt-2 text-[#00C9A7]">Try selecting a different technology.</p>
             </div>
           )}
         </div>
