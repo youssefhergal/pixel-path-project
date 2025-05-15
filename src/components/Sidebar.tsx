@@ -18,14 +18,14 @@ const Sidebar = () => {
   };
 
   const navItems = [
-    { path: '/', label: 'Home', icon: <Home size={20} /> },
-    { path: '/about', label: 'About', icon: <User size={20} /> },
-    { path: '/projects', label: 'Projects', icon: <Github size={20} /> },
-    { path: '/journey', label: 'Journey', icon: <Briefcase size={20} /> },
-    { path: '/education', label: 'Education', icon: <Book size={20} /> },
-    { path: '/opensource', label: 'Open Source', icon: <Github size={20} /> },
-    { path: '/volunteering', label: 'Volunteering', icon: <User size={20} /> },
-    { path: '/contact', label: 'Contact', icon: <Mail size={20} /> },
+    { path: '/', label: 'Home', icon: <Home size={23} /> },
+    { path: '/about', label: 'About', icon: <User size={23} /> },
+    { path: '/projects', label: 'Projects', icon: <Github size={23} /> },
+    { path: '/journey', label: 'Journey', icon: <Briefcase size={23} /> },
+    { path: '/education', label: 'Education', icon: <Book size={23} /> },
+    { path: '/opensource', label: 'Open Source', icon: <Github size={23} /> },
+    { path: '/volunteering', label: 'Volunteering', icon: <User size={23} /> },
+    { path: '/contact', label: 'Contact', icon: <Mail size={23} /> },
   ];
 
   const socialLinks = [
@@ -52,10 +52,10 @@ const Sidebar = () => {
                       ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
       >
         <div className="flex flex-col h-full">
-          <div className="p-6 border-b border-gray-200 dark:border-[#3D5AFE]/20">
+          <div className="p-3 border-b border-gray-200 dark:border-[#3D5AFE]/20">
             <div className="flex flex-col items-center mb-4">
-              <Avatar className="h-16 w-16 border border-gray-300 dark:border-[#3D5AFE]/30 mb-2">
-                <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80" alt="Profile" />
+              <Avatar className="h-16 w-16 border border-gray-300 dark:border-[#3D5AFE]/30 mb-1">
+                <AvatarImage src="src/data/youssef_profile.jpg" alt="Profile" />
                 <AvatarFallback className="bg-gray-100 dark:bg-[#3D5AFE]/20 text-gray-800 dark:text-[#F5F5F5]">DP</AvatarFallback>
               </Avatar>
               <div className="text-center">
