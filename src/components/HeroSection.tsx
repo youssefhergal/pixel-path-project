@@ -28,7 +28,10 @@ const HeroSection = () => {
           Currently, I'm focused on developing accessible, user-centered products.
         </p>
         
-        <TechIcons />
+        <div className="mb-8 overflow-hidden">
+          <p className="text-[#A0A0A0] mb-3">Tech Stack:</p>
+          <TechIcons />
+        </div>
         
         <div className="flex flex-wrap gap-4 mt-8">
           <Link 
