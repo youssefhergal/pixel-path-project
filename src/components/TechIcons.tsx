@@ -80,6 +80,11 @@ const TechIcons = () => {
       icon: <Server size={24} className="text-orange-500" />, 
       description: 'Cloud infrastructure and serverless architecture',
     },
+    {
+      name: 'SPring',
+      icon: <Server size={24} className="text-green-500" />,
+      description: 'Spring ecosystem for Java development',
+    },
     { 
       name: 'Git', 
       icon: <Github size={24} className="text-white" />, 
