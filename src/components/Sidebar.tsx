@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,8 +52,16 @@ const Sidebar = () => {
       >
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-[#3D5AFE]/20">
-            <h1 className="text-xl font-bold text-[#F5F5F5]">Portfolio</h1>
-            <p className="text-sm text-[#A0A0A0]">Software Developer</p>
+            <div className="flex items-center gap-3">
+              <Avatar className="h-10 w-10 border border-[#3D5AFE]/30">
+                <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80" alt="Profile" />
+                <AvatarFallback className="bg-[#3D5AFE]/20 text-[#F5F5F5]">DP</AvatarFallback>
+              </Avatar>
+              <div>
+                <h1 className="text-lg font-bold text-[#F5F5F5]">Portfolio</h1>
+                <p className="text-xs text-[#A0A0A0]">Software Developer</p>
+              </div>
+            </div>
           </div>
           
           <nav className="flex-1 p-4">

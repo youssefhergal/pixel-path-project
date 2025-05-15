@@ -46,22 +46,24 @@ const Projects = () => {
         <SectionTitle title="Projects" subtitle="A selection of my technical work" />
         
         <div className="mb-10">
-          <div className="flex items-center mb-4 text-[#00C9A7]">
-            <Filter size={20} className="mr-2" />
-            <h3 className="text-lg font-medium">Filter Projects</h3>
+          <div className="flex items-center mb-6 text-[#3D5AFE]">
+            <div className="bg-[#1A1A1E] p-3 rounded-full shadow-md mr-3">
+              <Filter size={20} className="text-[#00C9A7]" />
+            </div>
+            <h3 className="text-xl font-medium text-[#F5F5F5]">Filter Projects</h3>
           </div>
           
-          <div className="overflow-x-auto">
-            <div className="flex space-x-2 pb-2">
+          <div className="overflow-x-auto px-1 py-2">
+            <div className="flex flex-wrap gap-2 pb-2">
               {techFilters.map((tech) => (
                 <button
                   key={tech}
                   onClick={() => setFilter(tech)}
-                  className={`px-4 py-2 rounded-md whitespace-nowrap transition-colors ${
-                    filter === tech 
-                      ? 'bg-[#3D5AFE] text-[#F5F5F5]' 
-                      : 'bg-[#1A1A1E] text-[#A0A0A0] hover:bg-[#3D5AFE]/20 hover:text-[#F5F5F5] border border-[#3D5AFE]/20'
-                  }`}
+                  className={`px-4 py-2.5 rounded-xl transition-all duration-200 font-medium shadow-sm whitespace-nowrap
+                    ${filter === tech 
+                      ? 'bg-gradient-to-r from-[#3D5AFE] to-[#00C9A7] text-[#F5F5F5]' 
+                      : 'bg-[#1A1A1E] text-[#A0A0A0] hover:bg-[#1A1A1E]/80 hover:text-[#F5F5F5] border border-[#3D5AFE]/20'
+                    }`}
                 >
                   {tech === 'all' ? 'All Projects' : tech}
                 </button>
