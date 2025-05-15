@@ -14,33 +14,36 @@ import OpenSource from "./pages/OpenSource";
 import Volunteering from "./pages/Volunteering";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen flex">
-          <Sidebar />
-          <main className="flex-1 overflow-x-hidden">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/journey" element={<Journey />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/opensource" element={<OpenSource />} />
-              <Route path="/volunteering" element={<Volunteering />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
+    <ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="min-h-screen flex bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200">
+            <Sidebar />
+            <main className="flex-1 overflow-x-hidden">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/journey" element={<Journey />} />
+                <Route path="/education" element={<Education />} />
+                <Route path="/opensource" element={<OpenSource />} />
+                <Route path="/volunteering" element={<Volunteering />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
