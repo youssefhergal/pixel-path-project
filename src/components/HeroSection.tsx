@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import AnimatedText from './AnimatedText';
 import EncryptedReveal from './EncryptedReveal';
 import TechIcons from './TechIcons';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 const HeroSection = () => {
   return (
@@ -13,20 +14,31 @@ const HeroSection = () => {
       style={{ backgroundColor: '#0E0E10' }}
     >
       <div className="max-w-4xl">
-        <p className="mb-5 font-mono text-[#A0A0A0]">Hi, my name is</p>
-        
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-[#3D5AFE]">
-          <AnimatedText text="Software Developer" typingSpeed={80} />
-        </h1>
-        
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#00C9A7]">
-          <EncryptedReveal text="I build things for the web." duration={3000} />
-        </h2>
-        
-        <p className="text-lg md:text-xl max-w-xl mb-8 text-[#F5F5F5]">
-          I am a software developer student specializing in building (and occasionally designing) exceptional digital experiences.
-          Currently, I'm focused on developing accessible, user-centered products.
-        </p>
+        <div className="flex flex-col md:flex-row md:items-center gap-8 mb-8">
+          <div className="photo-container animate-floating">
+            <Avatar className="w-28 h-28 md:w-36 md:h-36 border-2 border-[#3D5AFE] shadow-lg shadow-[#3D5AFE]/20 animate-pulse-slow">
+              <AvatarImage src="src/data/youssef_profile.jpg" alt="Profile" className="animate-rotate-slow" />
+              <AvatarFallback className="bg-gray-100 dark:bg-[#3D5AFE]/20 text-gray-800 dark:text-[#F5F5F5]">DP</AvatarFallback>
+            </Avatar>
+          </div>
+          
+          <div>
+            <p className="mb-5 font-mono text-[#A0A0A0]">Hi, my name is</p>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-[#3D5AFE]">
+              <AnimatedText text="Software Developer" typingSpeed={80} />
+            </h1>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#00C9A7]">
+              <EncryptedReveal text="I build things for the web." duration={3000} />
+            </h2>
+            
+            <p className="text-lg md:text-xl max-w-xl mb-8 text-[#F5F5F5]">
+              I am a software developer student specializing in building (and occasionally designing) exceptional digital experiences.
+              Currently, I'm focused on developing accessible, user-centered products.
+            </p>
+          </div>
+        </div>
         
         <div className="mb-8 overflow-hidden">
           <p className="text-[#A0A0A0] mb-3">Tech Stack:</p>

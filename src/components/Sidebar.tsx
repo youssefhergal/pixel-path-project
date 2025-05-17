@@ -48,13 +48,13 @@ const Sidebar = () => {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
       
-      <div className={`fixed top-0 left-0 h-full bg-white dark:bg-[#1A1A1E] z-40 transition-transform duration-300 ease-in-out transform w-64 border-r border-gray-200 dark:border-[#3D5AFE]/20 rounded-tr-2xl rounded-br-2xl
+      <div className={`fixed top-0 left-0 h-full bg-white dark:bg-[#1A1A1E] z-40 transition-transform duration-300 ease-in-out transform w-64 border-r border-gray-200 dark:border-[#3D5AFE]/20 rounded-tr-lg rounded-br-lg
                       ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
       >
         <div className="flex flex-col h-full">
-          <div className="p-3 border-b border-gray-200 dark:border-[#3D5AFE]/20">
+          <div className="p-4 border-b border-gray-200 dark:border-[#3D5AFE]/20">
             <div className="flex flex-col items-center mb-4">
-              <Avatar className="h-16 w-16 border border-gray-300 dark:border-[#3D5AFE]/30 mb-1">
+              <Avatar className="h-20 w-20 border-2 border-gray-300 dark:border-[#3D5AFE]/30 mb-4 shadow-md hover:shadow-[#3D5AFE]/40 transition-all duration-300 hover:scale-110">
                 <AvatarImage src="src/data/youssef_profile.jpg" alt="Profile" />
                 <AvatarFallback className="bg-gray-100 dark:bg-[#3D5AFE]/20 text-gray-800 dark:text-[#F5F5F5]">DP</AvatarFallback>
               </Avatar>
