@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -198,16 +199,16 @@
     }
   }
   
-  .float {
-    animation: float 3s ease-in-out infinite;
+  .animate-floating {
+    animation: float 5s ease-in-out infinite;
   }
   
-  .pulse {
-    animation: pulse 2s ease-in-out infinite;
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
   }
   
-  .rotate {
-    animation: rotate 6s linear infinite;
+  .animate-rotate-slow {
+    animation: rotate 15s linear infinite;
   }
   
   /* Typing animation for text */
@@ -276,7 +277,15 @@
     will-change: transform;
   }
   
-  /* For mobile responsive design */
+  /* Media queries for responsive design */
+  @media (max-width: 1024px) {
+    .photo-container {
+      width: 80%;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+  }
+  
   @media (max-width: 768px) {
     .scroller-container {
       height: 120px;
@@ -284,6 +293,18 @@
     
     .tech-icon-name {
       font-size: 0.7rem;
+    }
+    
+    .photo-container {
+      width: 70%;
+      max-width: 280px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .photo-container {
+      width: 80%;
+      max-width: 240px;
     }
   }
 }
