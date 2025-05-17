@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter } from 'lucide-react';
-import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { ThemeToggle } from './ThemeProvider';
 
 const Sidebar = () => {
@@ -53,17 +52,11 @@ const Sidebar = () => {
       >
         <div className="flex flex-col h-full">
           <div className="p-4 border-b border-gray-200 dark:border-[#3D5AFE]/20">
-            <div className="flex flex-col items-center mb-4">
-              <Avatar className="h-20 w-20 border-2 border-gray-300 dark:border-[#3D5AFE]/30 mb-4 shadow-md hover:shadow-[#3D5AFE]/40 transition-all duration-300 hover:scale-110">
-                <AvatarImage src="src/data/youssef_profile.jpg" alt="Profile" />
-                <AvatarFallback className="bg-gray-100 dark:bg-[#3D5AFE]/20 text-gray-800 dark:text-[#F5F5F5]">DP</AvatarFallback>
-              </Avatar>
-              <div className="text-center">
-                <h1 className="text-lg font-bold text-gray-900 dark:text-[#F5F5F5]">Portfolio</h1>
-                <p className="text-xs text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
-              </div>
+            <div className="text-center">
+              <h1 className="text-xl font-bold text-gray-900 dark:text-[#F5F5F5]">Portfolio</h1>
+              <p className="text-sm text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-4">
               <ThemeToggle />
             </div>
           </div>
