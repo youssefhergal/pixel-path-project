@@ -1,13 +1,19 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter, Languages } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter, Globe } from 'lucide-react';
 import { ThemeToggle } from './ThemeProvider';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from './ui/dropdown-menu';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('en'); // 'en' for English, 'fr' for French
+  const [currentLanguage, setCurrentLanguage] = useState('en'); // 'en' for English, 'fr' for French, 'ar' for Arabic
   const location = useLocation();
 
   const toggleSidebar = () => {
@@ -18,8 +24,8 @@ const Sidebar = () => {
     setIsOpen(false);
   };
 
-  const toggleLanguage = () => {
-    setCurrentLanguage(currentLanguage === 'en' ? 'fr' : 'en');
+  const changeLanguage = (lang: string) => {
+    setCurrentLanguage(lang);
   };
 
   const navItems = [
@@ -41,6 +47,12 @@ const Sidebar = () => {
 
   const isActive = (path: string) => {
     return location.pathname === path;
+  };
+
+  const languageLabels = {
+    'en': 'English',
+    'fr': 'Français',
+    'ar': 'العربية'
   };
 
   return (
@@ -69,18 +81,31 @@ const Sidebar = () => {
                   <p className="text-xs text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
                 </div>
               </div>
-              <button 
-                onClick={toggleLanguage}
-                className="flex items-center justify-center p-1.5 rounded-full text-gray-600 dark:text-[#A0A0A0] hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10 hover:text-[#3D5AFE] transition-colors"
-                title={currentLanguage === 'en' ? 'Switch to French' : 'Switch to English'}
-              >
-                <Languages size={18} />
-                <span className="sr-only">Toggle Language</span>
-                <span className="ml-1 text-xs font-medium">{currentLanguage.toUpperCase()}</span>
-              </button>
-            </div>
-            <div className="flex justify-center">
               <ThemeToggle />
+            </div>
+            <div className="flex justify-center mt-2">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    className="flex items-center justify-center p-1.5 rounded-full text-gray-600 dark:text-[#A0A0A0] hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10 hover:text-[#3D5AFE] transition-colors"
+                    title="Select Language"
+                  >
+                    <Globe size={18} />
+                    <span className="ml-1 text-xs font-medium">{currentLanguage.toUpperCase()}</span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => changeLanguage('en')} className="cursor-pointer">
+                    🇺🇸 English
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => changeLanguage('fr')} className="cursor-pointer">
+                    🇫🇷 Français
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => changeLanguage('ar')} className="cursor-pointer">
+                    🇸🇦 العربية
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
           
