@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter, Languages } from 'lucide-react';
 import { ThemeToggle } from './ThemeProvider';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('en'); // 'en' for English, 'fr' for French
   const location = useLocation();
 
   const toggleSidebar = () => {
@@ -14,6 +16,10 @@ const Sidebar = () => {
 
   const closeSidebar = () => {
     setIsOpen(false);
+  };
+
+  const toggleLanguage = () => {
+    setCurrentLanguage(currentLanguage === 'en' ? 'fr' : 'en');
   };
 
   const navItems = [
@@ -52,11 +58,26 @@ const Sidebar = () => {
       >
         <div className="flex flex-col h-full">
           <div className="p-4 border-b border-gray-200 dark:border-[#3D5AFE]/20">
-            <div className="flex flex-col items-center mb-4">
-              <div className="text-center">
-                <h1 className="text-lg font-bold text-gray-900 dark:text-[#F5F5F5]">Portfolio</h1>
-                <p className="text-xs text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center space-x-3">
+                <Avatar className="h-10 w-10 border-2 border-[#3D5AFE] transition-all duration-300 hover:scale-110">
+                  <AvatarImage src="src/data/youssef_profile.jpg" alt="Profile" />
+                  <AvatarFallback>SD</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h1 className="text-lg font-bold text-gray-900 dark:text-[#F5F5F5]">Portfolio</h1>
+                  <p className="text-xs text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
+                </div>
               </div>
+              <button 
+                onClick={toggleLanguage}
+                className="flex items-center justify-center p-1.5 rounded-full text-gray-600 dark:text-[#A0A0A0] hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10 hover:text-[#3D5AFE] transition-colors"
+                title={currentLanguage === 'en' ? 'Switch to French' : 'Switch to English'}
+              >
+                <Languages size={18} />
+                <span className="sr-only">Toggle Language</span>
+                <span className="ml-1 text-xs font-medium">{currentLanguage.toUpperCase()}</span>
+              </button>
             </div>
             <div className="flex justify-center">
               <ThemeToggle />
