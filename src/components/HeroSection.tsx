@@ -55,7 +55,7 @@ const HeroSection = () => {
     >
       <div className="max-w-6xl mx-auto w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-8 relative">
         {/* Left Content - Text Information */}
-        <div className="lg:w-1/2 z-10">
+        <div className="lg:w-2/3 z-10">
           <p className="mb-5 font-mono text-[#A0A0A0]">Hi, my name is</p>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-[#3D5AFE]">
@@ -93,7 +93,7 @@ const HeroSection = () => {
         </div>
         
         {/* Right Content - Animated Photo */}
-        <div className="lg:w-1/2 relative flex justify-center items-center z-10">
+        <div className="lg:w-1/3 relative flex justify-center mb-24 z-10">
           <div className="photo-container relative w-full max-w-md">
             {/* Animated background pulse */}
             <div className="absolute inset-0 bg-[#3D5AFE]/20 rounded-full filter blur-xl animate-pulse-slow"></div>

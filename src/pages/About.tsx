@@ -12,7 +12,10 @@ const About = () => {
     { category: "Languages", items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "Python", "SQL"] },
     { category: "Frontend", items: ["React", "Vue.js", "Redux", "Tailwind CSS", "SCSS", "Framer Motion"] },
     { category: "Backend", items: ["Node.js", "Express", "MongoDB", "PostgreSQL", "Firebase"] },
-    { category: "Tools", items: ["Git", "GitHub", "VS Code", "Figma", "Webpack", "Jest", "Docker"] }
+    { category: "Tools", items: ["Git", "GitHub", "VS Code", "Figma", "Webpack", "Jest", "Docker"] },
+    { category: "DevOps", items: ["AWS", "GCP", "Azure", "Kubernetes", "Docker", "Jenkins", "GitHub Actions", "GitLab CI/CD"]},
+    { category: "Data Science", items: ["Python", "R", "SQL", "Pandas", "Numpy", "Scikit-Learn", "Tensorflow", "Pytorch", "Jupyter"]},
+
   ];
 
   return (
