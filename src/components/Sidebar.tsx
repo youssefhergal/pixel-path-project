@@ -81,31 +81,31 @@ const Sidebar = () => {
                   <p className="text-xs text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
                 </div>
               </div>
-              <ThemeToggle />
-            </div>
-            <div className="flex justify-center mt-2">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button
-                    className="flex items-center justify-center p-1.5 rounded-full text-gray-600 dark:text-[#A0A0A0] hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10 hover:text-[#3D5AFE] transition-colors"
-                    title="Select Language"
-                  >
-                    <Globe size={18} />
-                    <span className="ml-1 text-xs font-medium">{currentLanguage.toUpperCase()}</span>
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => changeLanguage('en')} className="cursor-pointer">
-                    🇺🇸 English
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => changeLanguage('fr')} className="cursor-pointer">
-                    🇫🇷 Français
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => changeLanguage('ar')} className="cursor-pointer">
-                    🇸🇦 العربية
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div className="flex items-center space-x-2">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      className="flex items-center justify-center p-1.5 rounded-full text-gray-600 dark:text-[#A0A0A0] hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10 hover:text-[#3D5AFE] transition-colors"
+                      title="Select Language"
+                    >
+                      <Globe size={16} />
+                      <span className="ml-1 text-xs font-medium">{currentLanguage.toUpperCase()}</span>
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => changeLanguage('en')} className="cursor-pointer">
+                      🇺🇸 English
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => changeLanguage('fr')} className="cursor-pointer">
+                      🇫🇷 Français
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => changeLanguage('ar')} className="cursor-pointer">
+                      🇸🇦 العربية
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <ThemeToggle />
+              </div>
             </div>
           </div>
           

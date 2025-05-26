@@ -28,7 +28,7 @@ const About = () => {
             <EncryptedReveal text="My Background" duration={1500} />
           </h3>
           
-          <div className="space-y-4 text-[#A0A0A0]">
+          <div className="space-y-4 text-gray-600 dark:text-[#A0A0A0]">
             <p>
               Hello! I'm a passionate software developer student with a focus on creating elegant, functional web applications. 
               My journey in coding began when I was in high school, tinkering with HTML and CSS to build simple websites.
@@ -46,7 +46,7 @@ const About = () => {
 
           <div className="mt-12">
             <h3 className="section-subtitle">Professional Interests</h3>
-            <ul className="list-disc list-inside space-y-2 text-[#A0A0A0]">
+            <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-[#A0A0A0]">
               <li>Web Application Development</li>
               <li>User Interface/Experience Design</li>
               <li>Cloud Computing and Serverless Architecture</li>
@@ -62,8 +62,8 @@ const About = () => {
         </div>
 
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
-          <div className="rounded-lg p-6 border bg-[#1A1A1E] border-[#3D5AFE]/20">
-            <h3 className="text-xl font-medium text-[#F5F5F5] mb-6">Skills & Technologies</h3>
+          <div className="rounded-lg p-6 border bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20">
+            <h3 className="text-xl font-medium text-gray-900 dark:text-[#F5F5F5] mb-6">Skills & Technologies</h3>
             
             <div className="space-y-6">
               {skills.map((skillGroup) => (

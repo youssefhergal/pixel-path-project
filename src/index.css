@@ -111,7 +111,7 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-900 dark:bg-portfolio-slateGray dark:text-portfolio-textGray font-inter;
+    @apply bg-background text-foreground font-inter;
     overflow-x: hidden;
     color: var(--clr-highlight-text);
     background: var(--clr-background);
@@ -162,7 +162,7 @@
   .tech-badge {
     @apply text-xs py-1 px-2 rounded-md mr-2 mb-2 inline-block;
     background-color: var(--clr-accent-primary);
-    color: var(--clr-highlight-text);
+    color: white;
   }
   
   /* Animations for tech icons */
