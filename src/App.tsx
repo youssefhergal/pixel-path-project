@@ -12,6 +12,7 @@ import Journey from "./pages/Journey";
 import Education from "./pages/Education";
 import OpenSource from "./pages/OpenSource";
 import Volunteering from "./pages/Volunteering";
+import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -36,6 +37,7 @@ const App = () => (
                 <Route path="/education" element={<Education />} />
                 <Route path="/opensource" element={<OpenSource />} />
                 <Route path="/volunteering" element={<Volunteering />} />
+                <Route path="/blogs" element={<Blogs />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

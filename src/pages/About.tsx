@@ -2,7 +2,6 @@
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import TechIcons from '../components/TechIcons';
 import EncryptedReveal from '../components/EncryptedReveal';
 
 const About = () => {
@@ -15,7 +14,6 @@ const About = () => {
     { category: "Tools", items: ["Git", "GitHub", "VS Code", "Figma", "Webpack", "Jest", "Docker"] },
     { category: "DevOps", items: ["AWS", "GCP", "Azure", "Kubernetes", "Docker", "Jenkins", "GitHub Actions", "GitLab CI/CD"]},
     { category: "Data Science", items: ["Python", "R", "SQL", "Pandas", "Numpy", "Scikit-Learn", "Tensorflow", "Pytorch", "Jupyter"]},
-
   ];
 
   return (
@@ -53,11 +51,6 @@ const About = () => {
               <li>Open Source Contribution</li>
               <li>Technical Writing and Documentation</li>
             </ul>
-          </div>
-          
-          <div className="mt-12">
-            <h3 className="section-subtitle">Technologies I Work With</h3>
-            <TechIcons />
           </div>
         </div>
 

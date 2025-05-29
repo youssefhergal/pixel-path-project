@@ -1,53 +1,11 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedText from './AnimatedText';
 import EncryptedReveal from './EncryptedReveal';
-import TechIcons from './TechIcons';
 
 const HeroSection = () => {
-  const blobRef = useRef<SVGPathElement>(null);
-  const frameRef = useRef<SVGSVGElement>(null);
-
-  useEffect(() => {
-    // Animate the SVG blob shape
-    const animateBlob = () => {
-      if (!blobRef.current) return;
-      
-      const path = blobRef.current;
-      const baseD = "M120,100 Q140,40 200,50 Q280,65 290,130 Q300,180 250,210 Q180,240 130,200 Q90,170 120,100";
-      const altD = "M120,110 Q130,50 190,40 Q270,45 300,120 Q310,190 250,220 Q170,250 120,190 Q90,160 120,110";
-      
-      const animate = () => {
-        path.setAttribute('d', path.getAttribute('d') === baseD ? altD : baseD);
-      };
-      
-      // Toggle between the two shapes every 3 seconds
-      const interval = setInterval(animate, 3000);
-      return () => clearInterval(interval);
-    };
-
-    // Rotate frame animation
-    const rotateFrame = () => {
-      if (!frameRef.current) return;
-      
-      const frame = frameRef.current;
-      let rotation = 0;
-      
-      const animate = () => {
-        rotation = (rotation + 0.2) % 360;
-        frame.style.transform = `rotate(${rotation}deg)`;
-        requestAnimationFrame(animate);
-      };
-      
-      requestAnimationFrame(animate);
-    };
-
-    animateBlob();
-    rotateFrame();
-  }, []);
-
   return (
     <section 
       className="flex min-h-[calc(100vh-6rem)] py-20 px-6 md:px-12 lg:px-16 relative overflow-hidden" 
@@ -71,9 +29,16 @@ const HeroSection = () => {
             Currently, I'm focused on developing accessible, user-centered products.
           </p>
 
-          <div className="mb-8 overflow-hidden">
+          <div className="mb-8">
             <p className="text-[#A0A0A0] mb-3">Tech Stack:</p>
-            <TechIcons />
+            <div className="flex flex-wrap gap-3">
+              <span className="tech-badge">JavaScript</span>
+              <span className="tech-badge">React</span>
+              <span className="tech-badge">Java</span>
+              <span className="tech-badge">Spring</span>
+              <span className="tech-badge">AWS</span>
+              <span className="tech-badge">SQL</span>
+            </div>
           </div>
           
           <div className="flex flex-wrap gap-4 mt-8">
@@ -92,65 +57,21 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Right Content - Animated Photo */}
+        {/* Right Content - Simple Photo */}
         <div className="lg:w-1/3 relative flex justify-center mb-24 z-10">
           <div className="photo-container relative w-full max-w-md">
-            {/* Animated background pulse */}
-            <div className="absolute inset-0 bg-[#3D5AFE]/20 rounded-full filter blur-xl animate-pulse-slow"></div>
+            {/* Simple background glow */}
+            <div className="absolute inset-0 bg-[#3D5AFE]/10 rounded-2xl filter blur-xl"></div>
             
-            {/* SVG animated frame */}
-            <svg 
-              ref={frameRef}
-              className="absolute -top-8 -left-8 -right-8 -bottom-8 w-[calc(100%+4rem)] h-[calc(100%+4rem)] animate-rotate-slow"
-              viewBox="0 0 400 400" 
-              fill="none"
-            >
-              <path 
-                ref={blobRef}
-                d="M120,100 Q140,40 200,50 Q280,65 290,130 Q300,180 250,210 Q180,240 130,200 Q90,170 120,100" 
-                fill="none" 
-                stroke="#3D5AFE" 
-                strokeWidth="2"
-                strokeDasharray="10 5"
-              />
-              <circle 
-                cx="200" 
-                cy="200" 
-                r="140" 
-                fill="none" 
-                stroke="#00C9A7" 
-                strokeWidth="1.5" 
-                strokeDasharray="10 5"
-                className="animate-pulse-slow"
-              />
-              <rect 
-                x="100" 
-                y="100" 
-                width="200" 
-                height="200" 
-                fill="none" 
-                stroke="#3D5AFE" 
-                strokeWidth="1" 
-                rx="30"
-                strokeDasharray="15 10"
-                className="opacity-70"
-              />
-            </svg>
-            
-            {/* Actual photo */}
-            <div className="relative w-full pt-[100%] overflow-hidden rounded-full border-4 border-[#3D5AFE] shadow-[0_0_25px_rgba(61,90,254,0.4)] animate-floating">
+            {/* Actual photo with clean styling */}
+            <div className="relative w-full pt-[100%] overflow-hidden rounded-2xl border-2 border-[#3D5AFE]/30 shadow-2xl">
               <img 
                 src="src/data/youssef_profile.jpg" 
                 alt="Developer Profile" 
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10]/20 to-transparent"></div>
             </div>
-            
-            {/* Floating geometric shapes */}
-            <div className="absolute top-0 left-0 w-10 h-10 border border-[#00C9A7] animate-floating opacity-70"></div>
-            <div className="absolute bottom-10 right-0 w-16 h-16 border-2 border-[#3D5AFE] rounded-full animate-floating delay-150 opacity-60"></div>
-            <div className="absolute top-1/4 right-0 w-8 h-8 bg-[#00C9A7]/20 rounded-full animate-floating delay-300"></div>
-            <div className="absolute bottom-0 left-10 w-12 h-12 border-2 border-[#00C9A7] rotate-45 animate-floating delay-200 opacity-60"></div>
           </div>
         </div>
 
