@@ -2,7 +2,6 @@
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import TechIcons from '../components/TechIcons';
 import EncryptedReveal from '../components/EncryptedReveal';
 
 const About = () => {
@@ -54,15 +53,10 @@ const About = () => {
               <li>Technical Writing and Documentation</li>
             </ul>
           </div>
-          
-          <div className="mt-12">
-            <h3 className="section-subtitle">Technologies I Work With</h3>
-            <TechIcons />
-          </div>
         </div>
 
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
-          <div className="rounded-lg p-6 border bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20">
+          <div className="rounded-lg p-6 border bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
             <h3 className="text-xl font-medium text-gray-900 dark:text-[#F5F5F5] mb-6">Skills & Technologies</h3>
             
             <div className="space-y-6">
@@ -71,7 +65,7 @@ const About = () => {
                   <h4 className="text-lg font-medium mb-3 text-[#00C9A7]">{skillGroup.category}</h4>
                   <div className="flex flex-wrap">
                     {skillGroup.items.map((skill) => (
-                      <span key={skill} className="tech-badge">
+                      <span key={skill} className="tech-badge hover:scale-110 hover:shadow-md transition-all duration-300">
                         {skill}
                       </span>
                     ))}

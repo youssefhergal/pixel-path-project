@@ -35,11 +35,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   
   return (
     <div 
-      className="project-card-animation border rounded-lg overflow-hidden transition-all duration-300 h-full"
+      className="project-card-animation border rounded-lg overflow-hidden transition-all duration-300 h-full hover:scale-105 hover:shadow-2xl hover:border-[#00C9A7] bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]"
       style={{ 
-        animationDelay: `${index * 0.1}s`, 
-        borderColor: '#3D5AFE',
-        backgroundColor: '#1A1A1E',
+        animationDelay: `${index * 0.1}s`
       }}
     >
       <div className="aspect-video w-full overflow-hidden relative">
@@ -56,7 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center"
           >
             <div className="text-center p-6">
-              <span className="block text-2xl font-bold text-[#F5F5F5]">{title}</span>
+              <span className="block text-2xl font-bold text-white">{title}</span>
               <span className="block mt-2 text-[#00C9A7]">Project Preview</span>
             </div>
           </div>
@@ -64,11 +62,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
       
       <div className="p-6">
-        <p className="text-base mb-4 text-[#A0A0A0]">{description}</p>
+        <p className="text-base mb-4 text-gray-600 dark:text-[#A0A0A0]">{description}</p>
         
         <div className="flex flex-wrap mb-6">
           {techStack.map((tech) => (
-            <span key={tech} className="tech-badge bg-[#3D5AFE]/20 text-[#F5F5F5] text-xs py-1 px-2 rounded-md mr-2 mb-2 inline-block">
+            <span key={tech} className="tech-badge bg-[#3D5AFE]/20 text-gray-700 dark:text-[#F5F5F5] text-xs py-1 px-2 rounded-md mr-2 mb-2 inline-block hover:scale-110 hover:shadow-md transition-all duration-300">
               {tech}
             </span>
           ))}
@@ -79,7 +77,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-[#F5F5F5] hover:text-[#3D5AFE] transition-colors"
+            className="inline-flex items-center gap-1 text-sm text-gray-700 dark:text-[#F5F5F5] hover:text-[#3D5AFE] hover:scale-110 transition-all duration-300"
           >
             <Github size={18} />
             <span>Code</span>
@@ -90,7 +88,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-[#F5F5F5] hover:text-[#3D5AFE] transition-colors"
+              className="inline-flex items-center gap-1 text-sm text-gray-700 dark:text-[#F5F5F5] hover:text-[#3D5AFE] hover:scale-110 transition-all duration-300"
             >
               <ExternalLink size={18} />
               <span>Live Demo</span>
