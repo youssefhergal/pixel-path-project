@@ -53,26 +53,36 @@ const Projects = () => {
             <h3 className="text-xl font-medium text-gray-900 dark:text-[#F5F5F5]">Filter Projects</h3>
           </div>
           
-          <div className="overflow-x-auto px-1 py-2">
-            <div className="flex flex-wrap gap-2 pb-2">
+          {/* Horizontal scrolling filter container */}
+          <div className="relative">
+            <div 
+              className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide"
+              style={{
+                scrollbarWidth: 'none', /* Firefox */
+                msOverflowStyle: 'none', /* Internet Explorer 10+ */
+              }}
+            >
               {techFilters.map((tech) => (
                 <button
                   key={tech}
                   onClick={() => setFilter(tech)}
-                  className={`px-4 py-2.5 rounded-xl transition-all duration-200 font-medium shadow-sm whitespace-nowrap text-sm md:text-base
+                  className={`flex-shrink-0 px-6 py-3 rounded-xl transition-all duration-300 font-medium shadow-sm whitespace-nowrap text-sm md:text-base hover:scale-105 hover:shadow-lg
                     ${filter === tech 
-                      ? 'bg-gradient-to-r from-[#3D5AFE] to-[#00C9A7] text-white dark:text-[#F5F5F5]' 
-                      : 'bg-white dark:bg-[#1A1A1E] text-gray-700 dark:text-[#A0A0A0] hover:bg-gray-50 dark:hover:bg-[#1A1A1E]/80 hover:text-[#3D5AFE] dark:hover:text-[#F5F5F5] border border-gray-200 dark:border-[#3D5AFE]/20'
+                      ? 'bg-gradient-to-r from-[#3D5AFE] to-[#00C9A7] text-white dark:text-[#F5F5F5] shadow-xl transform scale-105' 
+                      : 'bg-white dark:bg-[#1A1A1E] text-gray-700 dark:text-[#A0A0A0] hover:bg-gray-50 dark:hover:bg-[#1A1A1E]/80 hover:text-[#3D5AFE] dark:hover:text-[#F5F5F5] border border-gray-200 dark:border-[#3D5AFE]/20 hover:border-[#3D5AFE]/40'
                     }`}
                 >
                   {tech === 'all' ? 'All Projects' : tech}
                 </button>
               ))}
             </div>
+            
+            {/* Gradient fade effect at the end */}
+            <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-gray-50 dark:from-[#0E0E10] to-transparent pointer-events-none"></div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
               <ProjectCard
@@ -87,7 +97,7 @@ const Projects = () => {
               />
             ))
           ) : (
-            <div className="col-span-full text-center py-12 text-gray-500 dark:text-[#A0A0A0] bg-white dark:bg-[#1A1A1E] rounded-lg border border-gray-200 dark:border-[#3D5AFE]/20 shadow-md">
+            <div className="col-span-full text-center py-12 text-gray-500 dark:text-[#A0A0A0] bg-white dark:bg-[#1A1A1E] rounded-lg border border-gray-200 dark:border-[#3D5AFE]/20 shadow-md mx-2 sm:mx-0">
               No projects match the selected filter.
               <p className="mt-2 text-[#3D5AFE] dark:text-[#00C9A7]">Try selecting a different technology.</p>
             </div>
