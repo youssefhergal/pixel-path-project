@@ -1,13 +1,16 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/projectsData';
-import { Filter } from 'lucide-react';
+import { Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState<string>('all');
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Extract unique tech stack items
   const techFilters = ['all', ...new Set(projectsData.flatMap(project => project.techStack))];
@@ -40,6 +43,37 @@ const Projects = () => {
     };
   }, [filteredProjects]);
 
+  useEffect(() => {
+    const checkScrollable = () => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        setShowLeftArrow(scrollLeft > 0);
+        setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1);
+      }
+    };
+
+    checkScrollable();
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', checkScrollable);
+      window.addEventListener('resize', checkScrollable);
+      return () => {
+        container.removeEventListener('scroll', checkScrollable);
+        window.removeEventListener('resize', checkScrollable);
+      };
+    }
+  }, [techFilters]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 200;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="page-container lg:ml-64">
       <div className="scroll-animation">
@@ -53,13 +87,34 @@ const Projects = () => {
             <h3 className="text-xl font-medium text-gray-900 dark:text-[#F5F5F5]">Filter Projects</h3>
           </div>
           
-          {/* Horizontal scrolling filter container */}
+          {/* Horizontal scrolling filter container with navigation arrows */}
           <div className="relative">
+            {/* Left scroll arrow */}
+            {showLeftArrow && (
+              <button
+                onClick={() => scroll('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-[#1A1A1E] shadow-lg rounded-full p-2 border border-gray-200 dark:border-[#3D5AFE]/20 hover:bg-gray-50 dark:hover:bg-[#1A1A1E]/80 transition-all duration-200"
+              >
+                <ChevronLeft size={20} className="text-gray-600 dark:text-[#A0A0A0]" />
+              </button>
+            )}
+
+            {/* Right scroll arrow */}
+            {showRightArrow && (
+              <button
+                onClick={() => scroll('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-[#1A1A1E] shadow-lg rounded-full p-2 border border-gray-200 dark:border-[#3D5AFE]/20 hover:bg-gray-50 dark:hover:bg-[#1A1A1E]/80 transition-all duration-200"
+              >
+                <ChevronRight size={20} className="text-gray-600 dark:text-[#A0A0A0]" />
+              </button>
+            )}
+
             <div 
-              className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide"
+              ref={scrollContainerRef}
+              className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide px-8 lg:px-10"
               style={{
-                scrollbarWidth: 'none', /* Firefox */
-                msOverflowStyle: 'none', /* Internet Explorer 10+ */
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
               }}
             >
               {techFilters.map((tech) => (
@@ -77,8 +132,13 @@ const Projects = () => {
               ))}
             </div>
             
-            {/* Gradient fade effect at the end */}
-            <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-gray-50 dark:from-[#0E0E10] to-transparent pointer-events-none"></div>
+            {/* Gradient fade effects */}
+            {showLeftArrow && (
+              <div className="absolute left-0 top-0 bottom-4 w-8 bg-gradient-to-r from-gray-50 dark:from-[#0E0E10] to-transparent pointer-events-none"></div>
+            )}
+            {showRightArrow && (
+              <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-gray-50 dark:from-[#0E0E10] to-transparent pointer-events-none"></div>
+            )}
           </div>
         </div>
 
@@ -97,7 +157,7 @@ const Projects = () => {
               />
             ))
           ) : (
-            <div className="col-span-full text-center py-12 text-gray-500 dark:text-[#A0A0A0] bg-white dark:bg-[#1A1A1E] rounded-lg border border-gray-200 dark:border-[#3D5AFE]/20 shadow-md mx-2 sm:mx-0">
+            <div className="col-span-full text-center py-12 text-gray-500 dark:text-[#A0A0A0] bg-white dark:bg-[#1A1A1E] rounded-lg border border-gray-200 dark:border-[#3D5AFE]/20 shadow-md mx-2 sm:px-0">
               No projects match the selected filter.
               <p className="mt-2 text-[#3D5AFE] dark:text-[#00C9A7]">Try selecting a different technology.</p>
             </div>
