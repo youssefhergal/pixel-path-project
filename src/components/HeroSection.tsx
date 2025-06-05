@@ -1,10 +1,10 @@
-
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedText from './AnimatedText';
 import EncryptedReveal from './EncryptedReveal';
 import TechIcons from './TechIcons';
+import ResumeDialog from './ResumeDialog';
 
 const HeroSection = () => {
   const blobRef = useRef<SVGPathElement>(null);
@@ -82,6 +82,14 @@ const HeroSection = () => {
             >
               View My Projects <ArrowRight size={16} />
             </Link>
+            
+            <ResumeDialog>
+              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#00C9A7] text-white hover:bg-opacity-90 hover:scale-105 hover:shadow-lg transition-all duration-300">
+                <Download size={16} />
+                Resume
+              </button>
+            </ResumeDialog>
+            
             <Link 
               to="/contact" 
               className="inline-flex items-center gap-2 px-6 py-3 border border-[#3D5AFE] rounded-md text-gray-700 dark:text-[#F5F5F5] bg-transparent hover:bg-[#3D5AFE]/10 hover:scale-105 transition-all duration-300"
