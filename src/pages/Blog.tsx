@@ -6,14 +6,14 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
-import { Clock, User } from 'lucide-react';
+import { Clock, User, ExternalLink } from 'lucide-react';
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState('all');
   const blogsPerPage = 6;
 
-  // Sample blog data
+  // Sample blog data with external URLs
   const blogs = [
     {
       id: 1,
@@ -23,6 +23,7 @@ const Blog = () => {
       date: "2024-01-15",
       readTime: "5 min read",
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=80",
+      url: "https://medium.com/@example/future-of-web-development",
       author: {
         name: "John Doe",
         avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
@@ -36,6 +37,7 @@ const Blog = () => {
       date: "2024-01-12",
       readTime: "7 min read",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
+      url: "https://dev.to/example/digital-marketing-strategies-2024",
       author: {
         name: "Sarah Smith",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?auto=format&fit=crop&w=100&q=80"
@@ -49,6 +51,7 @@ const Blog = () => {
       date: "2024-01-10",
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1000&q=80",
+      url: "https://medium.com/@example/healthcare-tech-revolution",
       author: {
         name: "Dr. Michael Johnson",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
@@ -62,6 +65,7 @@ const Blog = () => {
       date: "2024-01-08",
       readTime: "4 min read",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
+      url: "https://hashnode.com/@example/remote-work-best-practices",
       author: {
         name: "Emily Chen",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80"
@@ -75,6 +79,7 @@ const Blog = () => {
       date: "2024-01-05",
       readTime: "8 min read",
       image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1000&q=80",
+      url: "https://medium.com/@example/ui-ux-design-principles",
       author: {
         name: "Alex Rivera",
         avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
@@ -88,6 +93,7 @@ const Blog = () => {
       date: "2024-01-03",
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1000&q=80",
+      url: "https://dev.to/example/ai-in-business",
       author: {
         name: "David Wilson",
         avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
@@ -104,6 +110,11 @@ const Blog = () => {
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
   const startIndex = (currentPage - 1) * blogsPerPage;
   const currentBlogs = filteredBlogs.slice(startIndex, startIndex + blogsPerPage);
+
+  // Handle blog card click
+  const handleBlogClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   useEffect(() => {
     // Animation observer for scroll effects
@@ -168,13 +179,19 @@ const Blog = () => {
                 className="blog-card-animation"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20 h-full">
-                  <div className="h-48 overflow-hidden">
+                <Card 
+                  className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20 h-full cursor-pointer group"
+                  onClick={() => handleBlogClick(blog.url)}
+                >
+                  <div className="h-48 overflow-hidden relative">
                     <img
                       src={blog.image}
                       alt={blog.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                    <div className="absolute top-2 right-2 bg-black/50 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ExternalLink size={16} className="text-white" />
+                    </div>
                   </div>
                   <CardHeader className="pb-2">
                     <div className="flex items-center justify-between mb-2">
@@ -186,7 +203,7 @@ const Blog = () => {
                       </Badge>
                       <div className="text-sm text-gray-500 dark:text-[#A0A0A0]">{blog.date}</div>
                     </div>
-                    <CardTitle className="text-xl font-bold hover:text-[#3D5AFE] dark:hover:text-[#00C9A7] cursor-pointer transition-colors">
+                    <CardTitle className="text-xl font-bold group-hover:text-[#3D5AFE] dark:group-hover:text-[#00C9A7] transition-colors">
                       {blog.title}
                     </CardTitle>
                   </CardHeader>
@@ -238,7 +255,7 @@ const Blog = () => {
                       e.preventDefault();
                       if (currentPage > 1) setCurrentPage(currentPage - 1);
                     }}
-                    className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                    className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10'}
                   />
                 </PaginationItem>
                 
@@ -258,7 +275,7 @@ const Blog = () => {
                             setCurrentPage(page);
                           }}
                           isActive={currentPage === page}
-                          className="cursor-pointer"
+                          className="cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10"
                         >
                           {page}
                         </PaginationLink>
@@ -284,7 +301,7 @@ const Blog = () => {
                       e.preventDefault();
                       if (currentPage < totalPages) setCurrentPage(currentPage + 1);
                     }}
-                    className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                    className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10'}
                   />
                 </PaginationItem>
               </PaginationContent>

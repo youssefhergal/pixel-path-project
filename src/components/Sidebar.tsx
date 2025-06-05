@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter, Globe } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Book, Mail, Github, Linkedin, Twitter, Globe, BookOpen } from 'lucide-react';
 import { ThemeToggle } from './ThemeProvider';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { 
@@ -36,6 +35,7 @@ const Sidebar = () => {
     { path: '/education', label: 'Education', icon: <Book size={23} /> },
     { path: '/opensource', label: 'Open Source', icon: <Github size={23} /> },
     { path: '/volunteering', label: 'Volunteering', icon: <User size={23} /> },
+    { path: '/blog', label: 'Blog', icon: <BookOpen size={23} /> },
     { path: '/contact', label: 'Contact', icon: <Mail size={23} /> },
   ];
 
