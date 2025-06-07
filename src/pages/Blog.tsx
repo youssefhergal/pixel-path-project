@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,31 +5,17 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
-import { Clock, User, ExternalLink } from 'lucide-react';
+import { Clock, User, ExternalLink, BookOpen } from 'lucide-react';
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState('all');
   const blogsPerPage = 6;
 
-  // Sample blog data with external URLs
+  // Hidden sample blog data - will be used when ready
   const blogs = [
     {
       id: 1,
-      title: "The Future of Web Development",
-      excerpt: "Exploring the latest trends and technologies shaping the future of web development, from AI integration to advanced frameworks.",
-      category: "technology",
-      date: "2024-01-15",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=80",
-      url: "https://medium.com/@example/future-of-web-development",
-      author: {
-        name: "John Doe",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
-      }
-    },
-    {
-      id: 2,
       title: "The Future of Web Development",
       excerpt: "Exploring the latest trends and technologies shaping the future of web development, from AI integration to advanced frameworks.",
       category: "technology",
@@ -115,17 +100,14 @@ const Blog = () => {
     }
   ];
 
-  // Filter blogs based on active category
   const filteredBlogs = activeCategory === 'all' 
     ? blogs 
     : blogs.filter(blog => blog.category === activeCategory);
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
   const startIndex = (currentPage - 1) * blogsPerPage;
   const currentBlogs = filteredBlogs.slice(startIndex, startIndex + blogsPerPage);
 
-  // Handle blog card click
   const handleBlogClick = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -148,7 +130,6 @@ const Blog = () => {
     };
   }, [currentBlogs]);
 
-  // Reset to first page when category changes
   useEffect(() => {
     setCurrentPage(1);
   }, [activeCategory]);
@@ -158,170 +139,186 @@ const Blog = () => {
       <div className="scroll-animation">
         <SectionTitle title="Blog" subtitle="Insights, tutorials, and thoughts on technology and development" />
         
-        {/* Filter Tabs */}
-        <div className="mb-10">
-          <Tabs value={activeCategory} onValueChange={setActiveCategory}>
-            <TabsList className="bg-gray-100 dark:bg-[#1A1A1E] p-1 mb-8">
-              <TabsTrigger value="all" className="rounded-md">
-                All Posts
-              </TabsTrigger>
-              <TabsTrigger value="technology" className="rounded-md">
-                Technology
-              </TabsTrigger>
-              <TabsTrigger value="marketing" className="rounded-md">
-                Marketing
-              </TabsTrigger>
-              <TabsTrigger value="healthcare" className="rounded-md">
-                Healthcare
-              </TabsTrigger>
-              <TabsTrigger value="workplace" className="rounded-md">
-                Workplace
-              </TabsTrigger>
-              <TabsTrigger value="design" className="rounded-md">
-                Design
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+        {/* Coming Soon Section */}
+        <div className="bg-white dark:bg-[#1A1A1E] rounded-lg p-12 border border-gray-200 dark:border-[#3D5AFE]/20 text-center">
+          <div className="flex items-center justify-center mb-6">
+            <div className="bg-[#3D5AFE]/20 p-6 rounded-full">
+              <BookOpen size={48} className="text-[#3D5AFE]" />
+            </div>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-[#F5F5F5] mb-4">Coming Soon</h3>
+          <p className="text-gray-600 dark:text-[#A0A0A0] text-lg max-w-2xl mx-auto">
+            I'm preparing exciting blog posts about technology, development insights, and tutorials. Stay tuned for valuable content that will help you in your development journey!
+          </p>
         </div>
+        
+        {/* Hidden existing content - uncomment when ready to show real data */}
+        <div className="hidden">
+          {/* Filter Tabs */}
+          <div className="mb-10">
+            <Tabs value={activeCategory} onValueChange={setActiveCategory}>
+              <TabsList className="bg-gray-100 dark:bg-[#1A1A1E] p-1 mb-8">
+                <TabsTrigger value="all" className="rounded-md">
+                  All Posts
+                </TabsTrigger>
+                <TabsTrigger value="technology" className="rounded-md">
+                  Technology
+                </TabsTrigger>
+                <TabsTrigger value="marketing" className="rounded-md">
+                  Marketing
+                </TabsTrigger>
+                <TabsTrigger value="healthcare" className="rounded-md">
+                  Healthcare
+                </TabsTrigger>
+                <TabsTrigger value="workplace" className="rounded-md">
+                  Workplace
+                </TabsTrigger>
+                <TabsTrigger value="design" className="rounded-md">
+                  Design
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
 
-        {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {currentBlogs.length > 0 ? (
-            currentBlogs.map((blog, index) => (
-              <div
-                key={blog.id}
-                className="blog-card-animation"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <Card 
-                  className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20 h-full cursor-pointer group"
-                  onClick={() => handleBlogClick(blog.url)}
+          {/* Blog Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {currentBlogs.length > 0 ? (
+              currentBlogs.map((blog, index) => (
+                <div
+                  key={blog.id}
+                  className="blog-card-animation"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="h-48 overflow-hidden relative">
-                    <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute top-2 right-2 bg-black/50 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <ExternalLink size={16} className="text-white" />
+                  <Card 
+                    className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20 h-full cursor-pointer group"
+                    onClick={() => handleBlogClick(blog.url)}
+                  >
+                    <div className="h-48 overflow-hidden relative">
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute top-2 right-2 bg-black/50 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ExternalLink size={16} className="text-white" />
+                      </div>
                     </div>
-                  </div>
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge
-                        variant="outline"
-                        className="bg-[#3D5AFE]/10 text-[#3D5AFE] dark:text-[#00C9A7] border-[#3D5AFE]/20 dark:border-[#00C9A7]/20"
-                      >
-                        {blog.category}
-                      </Badge>
-                      <div className="text-sm text-gray-500 dark:text-[#A0A0A0]">{blog.date}</div>
-                    </div>
-                    <CardTitle className="text-xl font-bold group-hover:text-[#3D5AFE] dark:group-hover:text-[#00C9A7] transition-colors">
-                      {blog.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pb-2">
-                    <CardDescription className="text-gray-600 dark:text-[#A0A0A0] line-clamp-3">
-                      {blog.excerpt}
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="pt-2 flex items-center justify-between mt-auto">
-                    <div className="flex items-center space-x-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage
-                          src={blog.author.avatar}
-                          alt={blog.author.name}
-                        />
-                        <AvatarFallback className="bg-[#3D5AFE]/20 text-[#3D5AFE] dark:text-[#00C9A7]">
-                          <User size={16} />
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="text-sm font-medium text-gray-700 dark:text-[#F5F5F5]">
-                        {blog.author.name}
-                      </span>
-                    </div>
-                    <div className="flex items-center text-sm text-gray-500 dark:text-[#A0A0A0]">
-                      <Clock size={14} className="mr-1" />
-                      {blog.readTime}
-                    </div>
-                  </CardFooter>
-                </Card>
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge
+                          variant="outline"
+                          className="bg-[#3D5AFE]/10 text-[#3D5AFE] dark:text-[#00C9A7] border-[#3D5AFE]/20 dark:border-[#00C9A7]/20"
+                        >
+                          {blog.category}
+                        </Badge>
+                        <div className="text-sm text-gray-500 dark:text-[#A0A0A0]">{blog.date}</div>
+                      </div>
+                      <CardTitle className="text-xl font-bold group-hover:text-[#3D5AFE] dark:group-hover:text-[#00C9A7] transition-colors">
+                        {blog.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pb-2">
+                      <CardDescription className="text-gray-600 dark:text-[#A0A0A0] line-clamp-3">
+                        {blog.excerpt}
+                      </CardDescription>
+                    </CardContent>
+                    <CardFooter className="pt-2 flex items-center justify-between mt-auto">
+                      <div className="flex items-center space-x-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage
+                            src={blog.author.avatar}
+                            alt={blog.author.name}
+                          />
+                          <AvatarFallback className="bg-[#3D5AFE]/20 text-[#3D5AFE] dark:text-[#00C9A7]">
+                            <User size={16} />
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="text-sm font-medium text-gray-700 dark:text-[#F5F5F5]">
+                          {blog.author.name}
+                        </span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-500 dark:text-[#A0A0A0]">
+                        <Clock size={14} className="mr-1" />
+                        {blog.readTime}
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12 text-gray-500 dark:text-[#A0A0A0] bg-white dark:bg-[#1A1A1E] rounded-lg border border-gray-200 dark:border-[#3D5AFE]/20 shadow-md">
+                No blog posts found for the selected category.
+                <p className="mt-2 text-[#3D5AFE] dark:text-[#00C9A7]">Try selecting a different category.</p>
               </div>
-            ))
-          ) : (
-            <div className="col-span-full text-center py-12 text-gray-500 dark:text-[#A0A0A0] bg-white dark:bg-[#1A1A1E] rounded-lg border border-gray-200 dark:border-[#3D5AFE]/20 shadow-md">
-              No blog posts found for the selected category.
-              <p className="mt-2 text-[#3D5AFE] dark:text-[#00C9A7]">Try selecting a different category.</p>
+            )}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center">
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious 
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage > 1) setCurrentPage(currentPage - 1);
+                      }}
+                      className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10'}
+                    />
+                  </PaginationItem>
+                  
+                  {[...Array(totalPages)].map((_, index) => {
+                    const page = index + 1;
+                    if (
+                      page === 1 ||
+                      page === totalPages ||
+                      (page >= currentPage - 1 && page <= currentPage + 1)
+                    ) {
+                      return (
+                        <PaginationItem key={page}>
+                          <PaginationLink
+                            href="#"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setCurrentPage(page);
+                            }}
+                            isActive={currentPage === page}
+                            className="cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10"
+                          >
+                            {page}
+                          </PaginationLink>
+                        </PaginationItem>
+                      );
+                    } else if (
+                      page === currentPage - 2 ||
+                      page === currentPage + 2
+                    ) {
+                      return (
+                        <PaginationItem key={page}>
+                          <PaginationEllipsis />
+                        </PaginationItem>
+                      );
+                    }
+                    return null;
+                  })}
+                  
+                  <PaginationItem>
+                    <PaginationNext 
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                      }}
+                      className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10'}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
             </div>
           )}
         </div>
-
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center">
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious 
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (currentPage > 1) setCurrentPage(currentPage - 1);
-                    }}
-                    className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10'}
-                  />
-                </PaginationItem>
-                
-                {[...Array(totalPages)].map((_, index) => {
-                  const page = index + 1;
-                  if (
-                    page === 1 ||
-                    page === totalPages ||
-                    (page >= currentPage - 1 && page <= currentPage + 1)
-                  ) {
-                    return (
-                      <PaginationItem key={page}>
-                        <PaginationLink
-                          href="#"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setCurrentPage(page);
-                          }}
-                          isActive={currentPage === page}
-                          className="cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10"
-                        >
-                          {page}
-                        </PaginationLink>
-                      </PaginationItem>
-                    );
-                  } else if (
-                    page === currentPage - 2 ||
-                    page === currentPage + 2
-                  ) {
-                    return (
-                      <PaginationItem key={page}>
-                        <PaginationEllipsis />
-                      </PaginationItem>
-                    );
-                  }
-                  return null;
-                })}
-                
-                <PaginationItem>
-                  <PaginationNext 
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-                    }}
-                    className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3D5AFE]/10'}
-                  />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
-        )}
       </div>
     </div>
   );
