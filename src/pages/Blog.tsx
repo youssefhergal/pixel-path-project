@@ -31,6 +31,20 @@ const Blog = () => {
     },
     {
       id: 2,
+      title: "The Future of Web Development",
+      excerpt: "Exploring the latest trends and technologies shaping the future of web development, from AI integration to advanced frameworks.",
+      category: "technology",
+      date: "2024-01-15",
+      readTime: "5 min read",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=80",
+      url: "https://medium.com/@example/future-of-web-development",
+      author: {
+        name: "John Doe",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      }
+    },
+    {
+      id: 2,
       title: "Digital Marketing Strategies for 2024",
       excerpt: "Discover effective digital marketing strategies that will help your business grow and reach new audiences in 2024.",
       category: "marketing",
