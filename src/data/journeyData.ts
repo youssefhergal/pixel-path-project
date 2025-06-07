@@ -1,4 +1,3 @@
-
 export interface JourneyItem {
   id: string;
   title: string;
@@ -11,49 +10,62 @@ export interface JourneyItem {
 }
 
 export const journeyData: JourneyItem[] = [
-  {
-    id: "journey1",
-    title: "Frontend Developer Intern",
-    company: "Tech Innovators Inc.",
-    location: "Remote",
-    startDate: "Jun 2024",
-    endDate: "Present",
-    description: [
-      "Developing responsive web applications using React, TypeScript, and Tailwind CSS",
-      "Collaborating with UX designers to implement pixel-perfect interfaces",
-      "Optimizing application performance and improving load times by 30%",
-      "Participating in code reviews and implementing best practices"
-    ],
-    technologies: ["React", "TypeScript", "Tailwind CSS", "RESTful APIs"]
-  },
+
   {
     id: "journey2",
-    title: "Student Research Assistant",
-    company: "University Research Lab",
-    location: "On-campus",
-    startDate: "Jan 2024",
-    endDate: "May 2024",
+    title: "R&D Intern (Open Source Project)",
+    company: "École des Mines de Paris",
+    location: "Paris, France",
+    startDate: "Apr 2025",
+    endDate: "Sep 2025",
     description: [
-      "Assisted in developing data visualization tools for research projects",
-      "Created interactive dashboards to display complex research data",
-      "Implemented automated data collection and processing scripts",
-      "Collaborated with researchers to present findings at academic conferences"
+      "Collaborated with researchers to improve an e-learning platform through ML personalization",
+      "Integrated and optimized custom algorithms to tailor educational experiences",
+      "Worked on the design and evaluation of adaptive learning systems"
     ],
-    technologies: ["Python", "D3.js", "Pandas", "Jupyter Notebooks"]
+    technologies: ["Javascript" , "Python", "TensorFlow", "Solid Js", "Scikit-learn"]
+  },
+  {
+    id: "journey4",
+    title: "Freelance Software Developer",
+    company: "CodySoft",
+    location: "Remote, Île-de-France",
+    startDate: "Dec 2023",
+    endDate: "Jan 2025",
+    description: [
+      "Built and maintained custom web apps for clients using modern full-stack tools",
+      "Developed internal APIs for user, payment, and notification systems",
+      "Coordinated directly with product teams to deliver tailored solutions"
+    ],
+    technologies: ["Java" , "Php" , "Javascript" , "Laravel" , "Node.js", "React.js", "MongoDB", "Spring Boot", "Docker"]
+  },
+  {
+    id: "journey1",
+    title: "AI Software Engineer Intern",
+    company: "ANCFCC",
+    location: "Rabat, Morocco",
+    startDate: "Jul 2024",
+    endDate: "Sep 2024",
+    description: [
+      "Designed and developed a document management platform using Spring Boot and React.js",
+      "Integrated OpenAI API with LangChain and RAG architecture for semantic search and summarization",
+      "Implemented PostgreSQL and Elasticsearch for storage and querying",
+      "Set up CI/CD pipelines and containerization with Docker for scalable deployment"
+    ],
+    technologies: ["Java", "Spring Boot", "React.js", "PostgreSQL", "Elasticsearch", "Docker", "LangChain", "CI/CD", "ML/DL" , "API Rest"]
   },
   {
     id: "journey3",
-    title: "Freelance Web Developer",
-    company: "Self-employed",
-    location: "Remote",
-    startDate: "Sep 2023",
-    endDate: "Dec 2023",
+    title: "Full Stack Developer Intern",
+    company: "ZALAGH PLANCHER / BETON ZALAGH",
+    location: "Fès, Morocco",
+    startDate: "Jul 2023",
+    endDate: "Aug 2023",
     description: [
-      "Designed and developed websites for small businesses and nonprofits",
-      "Created custom WordPress themes and plugins for client-specific needs",
-      "Provided ongoing maintenance and support for client websites",
-      "Implemented SEO best practices to improve client search rankings"
+      "Maintained and optimized an internal billing system using Symfony and MySQL",
+      "Redesigned the UI for better usability and automated PDF generation",
+      "Documented system architecture for future migration"
     ],
-    technologies: ["HTML/CSS", "JavaScript", "WordPress", "PHP"]
+    technologies: ["PHP", "Symfony", "MySQL", "JavaScript", "Bootstrap"]
   }
 ];

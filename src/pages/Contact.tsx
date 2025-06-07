@@ -66,9 +66,9 @@ const Contact = () => {
   }, []);
 
   const socialLinks = [
-    { name: "GitHub", icon: <Github size={20} />, url: "https://github.com/yourusername" },
-    { name: "LinkedIn", icon: <Linkedin size={20} />, url: "https://linkedin.com/in/yourusername" },
-    { name: "Twitter", icon: <Twitter size={20} />, url: "https://twitter.com/yourusername" }
+    { name: "GitHub", icon: <Github size={20} />, url: "https://github.com/youssefhergal" },
+    { name: "LinkedIn", icon: <Linkedin size={20} />, url: "https://linkedin.com/in/youssefhergal" },
+    { name: "Twitter", icon: <Twitter size={20} />, url: "https://twitter.com/youssefhergal" }
   ];
 
   return (
@@ -163,10 +163,10 @@ const Contact = () => {
                 <div>
                   <h4 className="text-lg font-medium text-gray-900 dark:text-[#F5F5F5]">Email</h4>
                   <a 
-                    href="mailto:your.email@example.com" 
+                    href="mailto:bonjour@youssefhergal.com"
                     className="text-gray-600 dark:text-[#A0A0A0] hover:text-[#00C9A7] transition-colors duration-300"
                   >
-                    your.email@example.com
+                    bonjour@youssefhergal.com
                   </a>
                 </div>
               </div>
@@ -176,10 +176,10 @@ const Contact = () => {
                 <div>
                   <h4 className="text-lg font-medium text-gray-900 dark:text-[#F5F5F5]">Phone</h4>
                   <a 
-                    href="tel:+1234567890" 
+                    href="tel:+33 074539****"
                     className="text-gray-600 dark:text-[#A0A0A0] hover:text-[#00C9A7] transition-colors duration-300"
                   >
-                    +1 (234) 567-890
+                    +33 074539****
                   </a>
                 </div>
               </div>

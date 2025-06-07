@@ -40,9 +40,9 @@ const Sidebar = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github size={20} />, url: "https://github.com/yourusername", label: "GitHub" },
-    { icon: <Linkedin size={20} />, url: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: <Twitter size={20} />, url: "https://twitter.com/yourusername", label: "Twitter" },
+    { icon: <Github size={20} />, url: "https://github.com/youssefhergal", label: "GitHub" },
+    { icon: <Linkedin size={20} />, url: "https://linkedin.com/in/youssefhergal", label: "LinkedIn" },
+    { icon: <Twitter size={20} />, url: "https://twitter.com/youssefhergal", label: "Twitter" },
   ];
 
   const isActive = (path: string) => {
@@ -77,7 +77,7 @@ const Sidebar = () => {
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h1 className="text-lg font-bold text-gray-900 dark:text-[#F5F5F5]">Portfolio</h1>
+                  <h1 className="text-lg font-bold text-gray-900 dark:text-[#F5F5F5]">Hergal</h1>
                   <p className="text-xs text-gray-600 dark:text-[#A0A0A0]">Software Developer</p>
                 </div>
               </div>
