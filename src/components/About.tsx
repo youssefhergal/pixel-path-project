@@ -12,11 +12,10 @@ const About = () => {
     { category: "Backend", items: ["Node.js", "Express", "MongoDB", "PostgreSQL", "Firebase"] },
     { category: "Tools", items: ["Git", "GitHub", "VS Code", "Figma", "Webpack", "Jest", "Docker"] },
     { category: "AI", items: ["Pytorch", "Tensorflow", "Jupeter", "Pandas", "ML/DL","Numpy" ,"Matplotlib", "Mlflow"] }
-
   ];
 
   return (
-    <div className="page-container lg:ml-64">
+    <div className="px-6 md:px-12 lg:px-16 max-w-6xl mx-auto">
       <SectionTitle title="About Me" subtitle="My background and skills" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
