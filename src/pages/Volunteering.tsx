@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { volunteeringData } from '../data/volunteeringData';
@@ -59,17 +58,27 @@ const Volunteering = () => {
                   className="w-full flex-shrink-0"
                 >
                   <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/2 aspect-video bg-[#3D5AFE]/10 flex items-center justify-center">
+                    <div className="md:w-1/2 aspect-video relative overflow-hidden">
                       {item.imageUrl ? (
-                        <img 
-                          src={item.imageUrl} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover"
-                        />
+                        <>
+                          <img 
+                            src={item.imageUrl} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                            <div className="text-center p-6">
+                              <h4 className="text-xl font-medium text-[#F5F5F5] mb-2">{item.title}</h4>
+                              <p className="text-sm text-[#00C9A7]">{item.organization}</p>
+                            </div>
+                          </div>
+                        </>
                       ) : (
-                        <div className="text-center p-6">
-                          <h4 className="text-xl font-medium text-[#F5F5F5] mb-2">{item.title}</h4>
-                          <p className="text-sm text-[#A0A0A0]">{item.organization}</p>
+                        <div className="bg-[#3D5AFE]/10 flex items-center justify-center h-full">
+                          <div className="text-center p-6">
+                            <h4 className="text-xl font-medium text-[#F5F5F5] mb-2">{item.title}</h4>
+                            <p className="text-sm text-[#A0A0A0]">{item.organization}</p>
+                          </div>
                         </div>
                       )}
                     </div>

@@ -19,6 +19,7 @@ export const volunteeringData: VolunteeringItem[] = [
     startDate: "Jan 2024",
     endDate: "Present",
     description: "Teaching programming concepts to underrepresented youth in the community. Organizing weekly coding workshops and helping students with their projects.",
+    imageUrl: "/data/images/volunteering/code-mentor.jpg"
   },
   {
     id: "vol2",
@@ -28,6 +29,7 @@ export const volunteeringData: VolunteeringItem[] = [
     startDate: "Oct 2023",
     endDate: "Dec 2023",
     description: "Helped organize a virtual hackathon focused on developing solutions for environmental issues. Mentored participants and judged final submissions.",
+    imageUrl: "/data/images/volunteering/hackathon-organizer.jpg"
   },
   {
     id: "vol3",
@@ -37,6 +39,7 @@ export const volunteeringData: VolunteeringItem[] = [
     startDate: "Jun 2023",
     endDate: "Aug 2023",
     description: "Designed and developed a new website for a local animal shelter, implementing features to showcase adoptable pets and process online donations.",
+    imageUrl: "/data/images/volunteering/website-developer.jpg"
   },
   {
     id: "vol4",
@@ -46,5 +49,6 @@ export const volunteeringData: VolunteeringItem[] = [
     startDate: "Mar 2023",
     endDate: "May 2023",
     description: "Provided technical support and taught basic computer skills to seniors. Created simplified guides and hosted weekly tech help sessions.",
+    imageUrl: "/data/images/volunteering/tech-support.jpg"
   }
 ];
