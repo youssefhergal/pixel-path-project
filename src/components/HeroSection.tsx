@@ -51,11 +51,11 @@ const HeroSection = () => {
           <div className="lg:w-2/3 z-10">
             <p className="mb-5 font-mono text-gray-600 dark:text-[#A0A0A0]">Hi, my name is</p>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-[#3D5AFE]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-2 text-[#3D5AFE]">
               <AnimatedText text="Youssef Hergal" typingSpeed={80} />
             </h1>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#00C9A7]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 text-[#00C9A7]">
               <EncryptedReveal text="Full-Stack Developer & AI Engineer" duration={3000} />
             </h2>
 
@@ -136,7 +136,7 @@ const HeroSection = () => {
 
               <div className="relative w-full pt-[100%] overflow-hidden rounded-full border-4 border-[#3D5AFE] shadow-[0_0_25px_rgba(61,90,254,0.4)] animate-floating">
                 <img
-                    src="src/data/youssef_profile.jpg"
+                    src="/src/data/youssef_profile.jpg"
                     alt="Developer Profile"
                     className="absolute inset-0 w-full h-full object-cover object-center"
                 />
