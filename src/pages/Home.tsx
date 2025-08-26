@@ -27,16 +27,16 @@ const Home = () => {
   const featuredProjects = projectsData.filter(project => project.featured).slice(0, 2);
 
   return (
-      <div className="flex-1 lg:ml-64 bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200">
+      <div className="flex-1 lg:ml-64 bg-background transition-colors duration-300">
         <HeroSection />
 
-        <section className="section-padding bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200">
+        <section className="section-padding bg-background transition-colors duration-300">
           <div className="scroll-animation">
             <div className="flex justify-between items-center mb-10">
               <SectionTitle title="Featured Projects" subtitle="Some things I've built" />
               <Link
                   to="/projects"
-                  className="inline-flex items-center gap-2 text-gray-700 dark:text-[#F5F5F5] hover:text-[#3D5AFE] transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
               >
                 View All <ArrowRight size={16} />
               </Link>
@@ -59,16 +59,20 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="section-padding bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200">
+        <section className="section-padding bg-background transition-colors duration-300">
           <div className="scroll-animation">
             <SectionTitle title="Get In Touch" />
             <div className="max-w-2xl mx-auto text-center">
-              <p className="text-lg text-gray-600 dark:text-[#A0A0A0] mb-8">
+              <p className="text-lg text-muted-foreground mb-8">
                 I'm currently seeking an apprenticeship starting October 2025 as part of my CTO & Tech Lead program (1 week school / 3 weeks company). If you're working on innovative technical projects, let's connect!
               </p>
               <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#3D5AFE] text-white rounded-md hover:bg-opacity-90 hover:scale-105 hover:shadow-lg transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg hover:scale-105 transition-all duration-300"
+                  style={{ 
+                    background: 'var(--gradient-primary)',
+                    boxShadow: 'var(--shadow-medium)'
+                  }}
               >
                 Contact Me
               </Link>
