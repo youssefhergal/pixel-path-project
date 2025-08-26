@@ -32,13 +32,13 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             {isMobile ? (
-              <div className="min-h-screen bg-gray-50 dark:bg-[#0E0E10]">
+              <div className="min-h-screen bg-background">
                 <MobileLandingPage />
               </div>
             ) : (
-              <div className="min-h-screen flex bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200">
+              <div className="min-h-screen flex bg-background transition-colors duration-300">
                 <Sidebar />
-                <main className="flex-1 overflow-x-hidden">
+                <main className="flex-1 overflow-x-hidden bg-background">
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
