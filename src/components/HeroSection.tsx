@@ -94,84 +94,58 @@ const HeroSection = () => {
 
           <div className="lg:w-1/3 relative flex justify-center mb-24 z-10">
             <div className="photo-container relative w-full max-w-md">
-              {/* Enhanced background gradients */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/20 to-primary/10 rounded-full filter blur-2xl animate-pulse-slow"></div>
-              <div className="absolute -inset-4 bg-gradient-to-tr from-secondary/20 via-transparent to-primary/20 rounded-full filter blur-xl animate-floating"></div>
+              <div className="absolute inset-0 bg-[#3D5AFE]/20 rounded-full filter blur-xl animate-pulse-slow"></div>
 
-              {/* Enhanced SVG frame with more dynamic elements */}
               <svg
                   ref={frameRef}
-                  className="absolute -top-12 -left-12 -right-12 -bottom-12 w-[calc(100%+6rem)] h-[calc(100%+6rem)] animate-rotate-slow"
+                  className="absolute -top-8 -left-8 -right-8 -bottom-8 w-[calc(100%+4rem)] h-[calc(100%+4rem)] animate-rotate-slow"
                   viewBox="0 0 400 400"
                   fill="none"
               >
-                {/* Dynamic blob path */}
                 <path
                     ref={blobRef}
                     d="M120,100 Q140,40 200,50 Q280,65 290,130 Q300,180 250,210 Q180,240 130,200 Q90,170 120,100"
                     fill="none"
-                    stroke="hsl(var(--primary))"
+                    stroke="#3D5AFE"
                     strokeWidth="2"
                     strokeDasharray="10 5"
-                    className="drop-shadow-lg"
                 />
-                {/* Outer circle */}
                 <circle
                     cx="200"
                     cy="200"
-                    r="150"
+                    r="140"
                     fill="none"
-                    stroke="hsl(var(--secondary))"
+                    stroke="#00C9A7"
                     strokeWidth="1.5"
-                    strokeDasharray="15 10"
-                    className="animate-pulse-slow opacity-80"
+                    strokeDasharray="10 5"
+                    className="animate-pulse-slow"
                 />
-                {/* Inner decorative circle */}
-                <circle
-                    cx="200"
-                    cy="200"
-                    r="120"
-                    fill="none"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="1"
-                    strokeDasharray="8 12"
-                    className="opacity-60"
-                />
-                {/* Decorative rounded rectangle */}
                 <rect
-                    x="90"
-                    y="90"
-                    width="220"
-                    height="220"
+                    x="100"
+                    y="100"
+                    width="200"
+                    height="200"
                     fill="none"
-                    stroke="hsl(var(--secondary))"
+                    stroke="#3D5AFE"
                     strokeWidth="1"
-                    rx="40"
-                    strokeDasharray="20 15"
-                    className="opacity-50"
+                    rx="30"
+                    strokeDasharray="15 10"
+                    className="opacity-70"
                 />
               </svg>
 
-              {/* Enhanced photo container */}
-              <div className="relative w-full pt-[100%] overflow-hidden rounded-full border-4 border-primary shadow-[0_0_40px_rgba(61,90,254,0.6)] animate-floating bg-gradient-to-br from-background to-muted">
-                <div className="absolute inset-2 rounded-full overflow-hidden border-2 border-secondary/30">
-                  <img
-                      src="/src/data/youssef_profile.jpg"
-                      alt="Youssef Hergal - Full-Stack Developer & AI Engineer"
-                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
-                  />
-                  {/* Photo overlay effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-secondary/10"></div>
-                </div>
+              <div className="relative w-full pt-[100%] overflow-hidden rounded-full border-4 border-[#3D5AFE] shadow-[0_0_25px_rgba(61,90,254,0.4)] animate-floating">
+                <img
+                    src="/src/data/youssef_profile.jpg"
+                    alt="Developer Profile"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                />
               </div>
 
-              {/* Enhanced floating decorative elements */}
-              <div className="absolute -top-2 -left-2 w-12 h-12 border-2 border-secondary rounded-lg animate-floating opacity-80 bg-secondary/10"></div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-2 border-primary rounded-full animate-floating delay-150 opacity-70 bg-primary/5"></div>
-              <div className="absolute top-1/4 -right-6 w-10 h-10 bg-gradient-to-r from-secondary to-primary rounded-full animate-floating delay-300 opacity-60"></div>
-              <div className="absolute -bottom-2 -left-6 w-14 h-14 border-2 border-secondary rotate-45 animate-floating delay-200 opacity-60 bg-secondary/10"></div>
-              <div className="absolute top-1/2 -left-8 w-6 h-6 bg-primary rounded-full animate-floating delay-500 opacity-50"></div>
-              <div className="absolute top-3/4 -right-2 w-8 h-8 border border-secondary rounded-full animate-floating delay-700 opacity-50"></div>
+              <div className="absolute top-0 left-0 w-10 h-10 border border-[#00C9A7] animate-floating opacity-70"></div>
+              <div className="absolute bottom-10 right-0 w-16 h-16 border-2 border-[#3D5AFE] rounded-full animate-floating delay-150 opacity-60"></div>
+              <div className="absolute top-1/4 right-0 w-8 h-8 bg-[#00C9A7]/20 rounded-full animate-floating delay-300"></div>
+              <div className="absolute bottom-0 left-10 w-12 h-12 border-2 border-[#00C9A7] rotate-45 animate-floating delay-200 opacity-60"></div>
             </div>
           </div>
 
