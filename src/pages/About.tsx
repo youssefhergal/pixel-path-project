@@ -2,17 +2,31 @@ import React from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import EncryptedReveal from '../components/EncryptedReveal';
+import { 
+  Code2, 
+  Database, 
+  Globe, 
+  Server, 
+  Brain, 
+  Wrench,
+  Coffee,
+  Github,
+  Zap,
+  FileText,
+  Layers,
+  Cpu
+} from 'lucide-react';
 
 const About = () => {
   useScrollAnimation();
 
   const skills = [
-    { category: "Languages", items: ["Java", "Python", "R", "PHP", "JavaScript", "Shell"] },
-    { category: "Frontend", items: ["React.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3"] },
-    { category: "Backend", items: ["Node.js", "Spring", "JEE", "Laravel", "Flask", "Hibernate"] },
-    { category: "Databases", items: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "Snowflake"] },
-    { category: "Tools & DevOps", items: ["Git", "Docker", "CI/CD", "Databricks", "Jenkins", "Swagger", "Postman"] },
-    { category: "Data Science & ML", items: ["TensorFlow", "PyTorch", "NumPy", "Scikit-learn", "Apache Spark", "Hadoop"] },
+    { category: "Languages", icon: <Code2 size={20} />, items: ["Java", "Python", "R", "PHP", "JavaScript", "Shell"] },
+    { category: "Frontend", icon: <Globe size={20} />, items: ["React.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3"] },
+    { category: "Backend", icon: <Server size={20} />, items: ["Node.js", "Spring", "JEE", "Laravel", "Flask", "Hibernate"] },
+    { category: "Databases", icon: <Database size={20} />, items: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "Snowflake"] },
+    { category: "Tools & DevOps", icon: <Wrench size={20} />, items: ["Git", "Docker", "CI/CD", "Databricks", "Jenkins", "Swagger", "Postman"] },
+    { category: "Data Science & ML", icon: <Brain size={20} />, items: ["TensorFlow", "PyTorch", "NumPy", "Scikit-learn", "Apache Spark", "Hadoop"] },
   ];
 
   return (
@@ -50,13 +64,31 @@ const About = () => {
           </div>
 
           <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
-            <div className="rounded-lg p-6 border bg-white dark:bg-[#1A1A1E] border-gray-200 dark:border-[#3D5AFE]/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
-              <h3 className="text-xl font-medium text-gray-900 dark:text-[#F5F5F5] mb-6">Skills & Technologies</h3>
+            <div 
+              className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: 'var(--gradient-card)',
+                borderColor: 'hsl(var(--border))',
+                boxShadow: 'var(--shadow-soft)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+                e.currentTarget.style.borderColor = 'hsl(var(--border))';
+              }}
+            >
+              <h3 className="text-xl font-medium text-foreground mb-6">Skills & Technologies</h3>
 
               <div className="space-y-6">
                 {skills.map((skillGroup) => (
                     <div key={skillGroup.category}>
-                      <h4 className="text-lg font-medium mb-3 text-[#00C9A7]">{skillGroup.category}</h4>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-primary">{skillGroup.icon}</span>
+                        <h4 className="text-lg font-medium text-secondary">{skillGroup.category}</h4>
+                      </div>
                       <div className="flex flex-wrap">
                         {skillGroup.items.map((skill) => (
                             <span key={skill} className="tech-badge hover:scale-110 hover:shadow-md transition-all duration-300">

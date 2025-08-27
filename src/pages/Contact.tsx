@@ -72,7 +72,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="page-container lg:ml-64 bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200">
+    <div className="page-container lg:ml-64 bg-background transition-colors duration-200">
       <SectionTitle title="Contact Me" subtitle="Get in touch with me" />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -80,7 +80,7 @@ const Contact = () => {
           <h3 className="section-subtitle">Send Me a Message</h3>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-[#F5F5F5] mb-1">
+              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                 Your Name
               </label>
               <input
@@ -90,13 +90,18 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#1A1A1E] border border-gray-300 dark:border-[#3D5AFE]/20 text-gray-900 dark:text-[#F5F5F5] focus:border-[#3D5AFE] focus:ring-1 focus:ring-[#3D5AFE] focus:outline-none transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: 'var(--gradient-card)',
+                  borderColor: 'hsl(var(--border))',
+                  color: 'hsl(var(--foreground))'
+                }}
+                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md"
                 placeholder="John Doe"
               />
             </div>
             
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-[#F5F5F5] mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
                 Email Address
               </label>
               <input
@@ -106,13 +111,18 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#1A1A1E] border border-gray-300 dark:border-[#3D5AFE]/20 text-gray-900 dark:text-[#F5F5F5] focus:border-[#3D5AFE] focus:ring-1 focus:ring-[#3D5AFE] focus:outline-none transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: 'var(--gradient-card)',
+                  borderColor: 'hsl(var(--border))',
+                  color: 'hsl(var(--foreground))'
+                }}
+                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md"
                 placeholder="john.doe@example.com"
               />
             </div>
             
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-[#F5F5F5] mb-1">
+              <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">
                 Subject
               </label>
               <input
@@ -122,13 +132,18 @@ const Contact = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#1A1A1E] border border-gray-300 dark:border-[#3D5AFE]/20 text-gray-900 dark:text-[#F5F5F5] focus:border-[#3D5AFE] focus:ring-1 focus:ring-[#3D5AFE] focus:outline-none transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: 'var(--gradient-card)',
+                  borderColor: 'hsl(var(--border))',
+                  color: 'hsl(var(--foreground))'
+                }}
+                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md"
                 placeholder="Project Inquiry"
               />
             </div>
             
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-[#F5F5F5] mb-1">
+              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
                 Message
               </label>
               <textarea
@@ -138,7 +153,12 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#1A1A1E] border border-gray-300 dark:border-[#3D5AFE]/20 text-gray-900 dark:text-[#F5F5F5] focus:border-[#3D5AFE] focus:ring-1 focus:ring-[#3D5AFE] focus:outline-none resize-none transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: 'var(--gradient-card)',
+                  borderColor: 'hsl(var(--border))',
+                  color: 'hsl(var(--foreground))'
+                }}
+                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none transition-all duration-300 hover:shadow-md"
                 placeholder="Your message here..."
               />
             </div>
@@ -146,7 +166,11 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-[#3D5AFE] text-white rounded-md hover:bg-opacity-90 hover:scale-105 hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+              style={{ 
+                background: 'var(--gradient-primary)',
+                boxShadow: 'var(--shadow-medium)'
+              }}
+              className="w-full px-6 py-3 text-primary-foreground rounded-md hover:scale-105 transition-all duration-300 flex items-center justify-center"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -156,15 +180,30 @@ const Contact = () => {
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
           <h3 className="section-subtitle">Connect With Me</h3>
           
-          <div className="bg-white dark:bg-[#1A1A1E] rounded-lg p-6 border border-gray-200 dark:border-[#3D5AFE]/20 mb-8 hover:shadow-lg hover:scale-105 transition-all duration-300">
+          <div 
+            className="rounded-lg p-6 border mb-8 transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              background: 'var(--gradient-card)',
+              borderColor: 'hsl(var(--border))',
+              boxShadow: 'var(--shadow-soft)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+              e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+              e.currentTarget.style.borderColor = 'hsl(var(--border))';
+            }}
+          >
             <div className="space-y-6">
               <div className="flex items-start">
-                <Mail size={24} className="mt-1 mr-4 text-[#00C9A7]" />
+                <Mail size={24} className="mt-1 mr-4 text-secondary" />
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-[#F5F5F5]">Email</h4>
+                  <h4 className="text-lg font-medium text-foreground">Email</h4>
                   <a 
                     href="mailto:bonjour@youssefhergal.com"
-                    className="text-gray-600 dark:text-[#A0A0A0] hover:text-[#00C9A7] transition-colors duration-300"
+                    className="text-muted-foreground hover:text-secondary transition-colors duration-300"
                   >
                     bonjour@youssefhergal.com
                   </a>
@@ -172,12 +211,12 @@ const Contact = () => {
               </div>
               
               <div className="flex items-start">
-                <Phone size={24} className="mt-1 mr-4 text-[#00C9A7]" />
+                <Phone size={24} className="mt-1 mr-4 text-secondary" />
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-[#F5F5F5]">Phone</h4>
+                  <h4 className="text-lg font-medium text-foreground">Phone</h4>
                   <a 
                     href="tel:+33 074539****"
-                    className="text-gray-600 dark:text-[#A0A0A0] hover:text-[#00C9A7] transition-colors duration-300"
+                    className="text-muted-foreground hover:text-secondary transition-colors duration-300"
                   >
                     +33 074539****
                   </a>
@@ -194,7 +233,17 @@ const Contact = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-[#1A1A1E] border border-gray-200 dark:border-[#3D5AFE]/20 rounded-md hover:border-[#00C9A7] hover:text-[#00C9A7] hover:scale-105 hover:shadow-lg transition-all duration-300"
+                style={{
+                  background: 'var(--gradient-card)',
+                  borderColor: 'hsl(var(--border))'
+                }}
+                className="flex items-center gap-2 px-6 py-3 border rounded-md hover:border-secondary hover:text-secondary hover:scale-105 transition-all duration-300"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               >
                 {social.icon}
                 <span>{social.name}</span>
@@ -204,8 +253,23 @@ const Contact = () => {
           
           <div className="mt-12">
             <h3 className="section-subtitle">Availability</h3>
-            <div className="bg-white dark:bg-[#1A1A1E] rounded-lg p-6 border border-gray-200 dark:border-[#3D5AFE]/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
-              <p className="text-gray-600 dark:text-[#A0A0A0]">
+            <div 
+              className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: 'var(--gradient-card)',
+                borderColor: 'hsl(var(--border))',
+                boxShadow: 'var(--shadow-soft)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+                e.currentTarget.style.borderColor = 'hsl(var(--border))';
+              }}
+            >
+              <p className="text-muted-foreground">
                 I'm currently available for freelance work, part-time positions, and internships. If you have a project 
                 that you'd like to discuss, please feel free to reach out!
               </p>
