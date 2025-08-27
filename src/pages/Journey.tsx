@@ -35,7 +35,22 @@ const Journey = () => {
           >
             <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10]"></div>
             
-            <div className="bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20">
+            <div 
+              className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: 'var(--gradient-card)',
+                borderColor: 'hsl(var(--border))',
+                boxShadow: 'var(--shadow-soft)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+                e.currentTarget.style.borderColor = 'hsl(var(--border))';
+              }}
+            >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
                   <h3 className="text-xl font-medium text-[#F5F5F5]">{item.title}</h3>

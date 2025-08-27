@@ -45,7 +45,22 @@ const Education = () => {
               >
                 <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10]"></div>
                 
-                <div className="bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20 shadow-md shadow-[#3D5AFE]/5">
+                <div 
+                  className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+                  style={{
+                    background: 'var(--gradient-card)',
+                    borderColor: 'hsl(var(--border))',
+                    boxShadow: 'var(--shadow-soft)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                    e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+                    e.currentTarget.style.borderColor = 'hsl(var(--border))';
+                  }}
+                >
                   <div className="flex flex-col md:justify-between md:items-start mb-4">
                     <h4 className="text-xl font-medium text-[#F5F5F5]">{item.degree}</h4>
                     <p className="text-lg text-[#00C9A7]">{item.institution} • {item.location}</p>
@@ -85,10 +100,23 @@ const Education = () => {
           
           <div className="grid gap-6">
             {certificationData.map((cert, index) => (
-              <div 
+                <div 
                 key={cert.id}
-                className="scroll-animation bg-[#1A1A1E] rounded-lg p-6 border border-[#3D5AFE]/20 shadow-md shadow-[#3D5AFE]/5 flex"
-                style={{ animationDelay: `${(index + educationData.length) * 0.15}s` }}
+                className="scroll-animation rounded-lg p-6 border flex transition-all duration-300 hover:scale-[1.02]"
+                style={{ 
+                  animationDelay: `${(index + educationData.length) * 0.15}s`,
+                  background: 'var(--gradient-card)',
+                  borderColor: 'hsl(var(--border))',
+                  boxShadow: 'var(--shadow-soft)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                  e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+                  e.currentTarget.style.borderColor = 'hsl(var(--border))';
+                }}
               >
                 <div className="mr-4 text-[#00C9A7]">
                   <Book size={24} />

@@ -47,7 +47,14 @@ const Volunteering = () => {
       
       <div className="scroll-animation">
         <div className="mt-12 relative">
-          <div className="overflow-hidden rounded-lg bg-[#1A1A1E] border border-[#3D5AFE]/20">
+          <div 
+            className="overflow-hidden rounded-lg border"
+            style={{
+              background: 'var(--gradient-card)',
+              borderColor: 'hsl(var(--border))',
+              boxShadow: 'var(--shadow-medium)'
+            }}
+          >
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -137,7 +144,20 @@ const Volunteering = () => {
       
       <div className="mt-16 scroll-animation" style={{ animationDelay: '0.2s' }}>
         <h3 className="section-subtitle">The Impact of Volunteering</h3>
-        <div className="bg-[#1A1A1E] rounded-lg p-8 border border-[#3D5AFE]/20">
+        <div 
+          className="rounded-lg p-8 border transition-all duration-300 hover:scale-[1.01]"
+          style={{
+            background: 'var(--gradient-card)',
+            borderColor: 'hsl(var(--border))',
+            boxShadow: 'var(--shadow-soft)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+          }}
+        >
           <p className="text-[#A0A0A0] mb-4">
             Volunteering has been an integral part of my personal and professional growth. Through these experiences, 
             I've been able to apply my technical skills to make a positive impact in my community while also developing 

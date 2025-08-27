@@ -1,157 +1,206 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedText from './AnimatedText';
 import EncryptedReveal from './EncryptedReveal';
-import TechIcons from './TechIcons';
 import ResumeDialog from './ResumeDialog';
 
 const HeroSection = () => {
-  const blobRef = useRef<SVGPathElement>(null);
-  const frameRef = useRef<SVGSVGElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const particlesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const animateBlob = () => {
-      if (!blobRef.current) return;
-      const path = blobRef.current;
-      const baseD = "M120,100 Q140,40 200,50 Q280,65 290,130 Q300,180 250,210 Q180,240 130,200 Q90,170 120,100";
-      const altD = "M120,110 Q130,50 190,40 Q270,45 300,120 Q310,190 250,220 Q170,250 120,190 Q90,160 120,110";
-
+    // Floating animation for the image
+    const floatingAnimation = () => {
+      if (!imageRef.current) return;
+      
+      let time = 0;
       const animate = () => {
-        path.setAttribute('d', path.getAttribute('d') === baseD ? altD : baseD);
-      };
-
-      const interval = setInterval(animate, 3000);
-      return () => clearInterval(interval);
-    };
-
-    const rotateFrame = () => {
-      if (!frameRef.current) return;
-      const frame = frameRef.current;
-      let rotation = 0;
-
-      const animate = () => {
-        rotation = (rotation + 0.2) % 360;
-        frame.style.transform = `rotate(${rotation}deg)`;
+        time += 0.02;
+        if (imageRef.current) {
+          imageRef.current.style.transform = `translateY(${Math.sin(time) * 10}px) scale(${1 + Math.sin(time * 0.5) * 0.02})`;
+        }
         requestAnimationFrame(animate);
       };
-
       requestAnimationFrame(animate);
     };
 
-    animateBlob();
-    rotateFrame();
+    // Particle animation
+    const createParticles = () => {
+      if (!particlesRef.current) return;
+      
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 2}s`;
+        particle.style.animationDuration = `${2 + Math.random() * 3}s`;
+        particlesRef.current.appendChild(particle);
+      }
+    };
+
+    floatingAnimation();
+    createParticles();
   }, []);
 
   return (
       <section
-          className="flex min-h-[calc(100vh-6rem)] py-20 px-6 md:px-12 lg:px-16 relative overflow-hidden bg-gray-50 dark:bg-[#0E0E10] transition-colors duration-200"
+          className="flex min-h-[calc(100vh-6rem)] py-20 px-6 md:px-12 lg:px-16 relative overflow-hidden"
+          style={{ 
+            background: 'var(--gradient-background)',
+            transition: 'all 0.3s ease'
+          }}
       >
-        <div className="max-w-6xl mx-auto w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-8 relative">
-          <div className="lg:w-2/3 z-10">
-            <p className="mb-5 font-mono text-gray-600 dark:text-[#A0A0A0]">Hi, my name is</p>
+        {/* Animated particles background */}
+        <div ref={particlesRef} className="absolute inset-0 overflow-hidden pointer-events-none"></div>
+        
+        <div className="max-w-6xl mx-auto w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
+          <div className="lg:w-2/3">
+            <div className="space-y-6">
+              <p className="mb-5 font-mono text-muted-foreground animate-fade-in">Hi, my name is</p>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-2 text-[#3D5AFE]">
-              <AnimatedText text="Youssef Hergal" typingSpeed={80} />
-            </h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-2 text-primary animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <AnimatedText text="Youssef Hergal" typingSpeed={80} />
+              </h1>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 text-[#00C9A7]">
-              <EncryptedReveal text="Full-Stack Developer & AI Engineer" duration={3000} />
-            </h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 text-secondary animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                <EncryptedReveal text="Full-Stack Developer & AI Engineer" duration={3000} />
+              </h2>
 
-            <p className="text-lg md:text-xl max-w-xl mb-8 text-gray-700 dark:text-[#F5F5F5]">
-              I'm a passionate software developer currently pursuing a Master's in Data Exploration & Decision Support. My focus is on developing intelligent, user-centric web applications using modern full-stack and AI technologies.
-            </p>
+              <p className="text-lg md:text-xl max-w-xl mb-8 text-foreground/80 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                I'm a passionate software developer currently pursuing a Master's in Data Exploration & Decision Support. 
+                My focus is on developing intelligent, user-centric web applications using modern full-stack and AI technologies.
+              </p>
 
-            <div className="mb-8 overflow-hidden">
-              <p className="text-gray-600 dark:text-[#A0A0A0] mb-3">Tech Stack:</p>
-              <TechIcons />
-            </div>
+              <div className="flex flex-wrap gap-4 mt-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+                <Link
+                    to="/projects"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium transition-all duration-300 group"
+                    style={{ 
+                      background: 'var(--gradient-primary)',
+                      color: 'hsl(var(--primary-foreground))',
+                      boxShadow: 'var(--shadow-medium)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = 'var(--shadow-large)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+                    }}
+                >
+                  <Sparkles size={18} className="group-hover:rotate-12 transition-transform" />
+                  View My Projects 
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
 
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#3D5AFE] text-white hover:bg-opacity-90 hover:scale-105 hover:shadow-lg transition-all duration-300"
-              >
-                View My Projects <ArrowRight size={16} />
-              </Link>
+                <ResumeDialog>
+                  <button 
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium border transition-all duration-300 group"
+                    style={{ 
+                      background: 'var(--gradient-hover)',
+                      borderColor: 'hsl(var(--border))',
+                      color: 'hsl(var(--foreground))'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.background = 'var(--gradient-white-gray)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.background = 'var(--gradient-hover)';
+                    }}
+                  >
+                    <Download size={16} className="group-hover:translate-y-1 transition-transform" />
+                    Resume
+                  </button>
+                </ResumeDialog>
 
-              <ResumeDialog>
-                <button className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#00C9A7] text-white hover:bg-opacity-90 hover:scale-105 hover:shadow-lg transition-all duration-300">
-                  <Download size={16} />
-                  Resume
-                </button>
-              </ResumeDialog>
-
-              <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-[#3D5AFE] rounded-md text-gray-700 dark:text-[#F5F5F5] bg-transparent hover:bg-[#3D5AFE]/10 hover:scale-105 transition-all duration-300"
-              >
-                Get In Touch
-              </Link>
+                <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium border transition-all duration-300 group"
+                    style={{ 
+                      background: 'transparent',
+                      borderColor: 'hsl(var(--primary))',
+                      color: 'hsl(var(--primary))'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'hsl(var(--primary) / 0.1)';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }}
+                >
+                  Get In Touch
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="lg:w-1/3 relative flex justify-center mb-24 z-10">
-            <div className="photo-container relative w-full max-w-md">
-              <div className="absolute inset-0 bg-[#3D5AFE]/20 rounded-full filter blur-xl animate-pulse-slow"></div>
-
-              <svg
-                  ref={frameRef}
-                  className="absolute -top-8 -left-8 -right-8 -bottom-8 w-[calc(100%+4rem)] h-[calc(100%+4rem)] animate-rotate-slow"
-                  viewBox="0 0 400 400"
-                  fill="none"
+          <div className="lg:w-1/3 relative flex justify-center animate-scale-in" style={{ animationDelay: '1s' }}>
+            <div className="relative w-full max-w-sm">
+              {/* Animated gradient background */}
+              <div 
+                className="absolute inset-0 rounded-full opacity-20 animate-pulse"
+                style={{
+                  background: 'var(--gradient-primary)',
+                  filter: 'blur(40px)',
+                  transform: 'scale(1.2)'
+                }}
+              ></div>
+              
+              {/* Main image container */}
+              <div 
+                className="relative w-full pt-[100%] overflow-hidden rounded-full border-4 shadow-2xl"
+                style={{
+                  borderColor: 'hsl(var(--primary))',
+                  boxShadow: 'var(--shadow-glow)'
+                }}
               >
-                <path
-                    ref={blobRef}
-                    d="M120,100 Q140,40 200,50 Q280,65 290,130 Q300,180 250,210 Q180,240 130,200 Q90,170 120,100"
-                    fill="none"
-                    stroke="#3D5AFE"
-                    strokeWidth="2"
-                    strokeDasharray="10 5"
-                />
-                <circle
-                    cx="200"
-                    cy="200"
-                    r="140"
-                    fill="none"
-                    stroke="#00C9A7"
-                    strokeWidth="1.5"
-                    strokeDasharray="10 5"
-                    className="animate-pulse-slow"
-                />
-                <rect
-                    x="100"
-                    y="100"
-                    width="200"
-                    height="200"
-                    fill="none"
-                    stroke="#3D5AFE"
-                    strokeWidth="1"
-                    rx="30"
-                    strokeDasharray="15 10"
-                    className="opacity-70"
-                />
-              </svg>
-
-              <div className="relative w-full pt-[100%] overflow-hidden rounded-full border-4 border-[#3D5AFE] shadow-[0_0_25px_rgba(61,90,254,0.4)] animate-floating">
                 <img
+                    ref={imageRef}
                     src="/src/data/youssef_profile.jpg"
                     alt="Developer Profile"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-300"
                 />
+                
+                {/* Overlay gradient */}
+                <div 
+                  className="absolute inset-0 rounded-full opacity-10"
+                  style={{ background: 'var(--gradient-primary)' }}
+                ></div>
               </div>
-
-              <div className="absolute top-0 left-0 w-10 h-10 border border-[#00C9A7] animate-floating opacity-70"></div>
-              <div className="absolute bottom-10 right-0 w-16 h-16 border-2 border-[#3D5AFE] rounded-full animate-floating delay-150 opacity-60"></div>
-              <div className="absolute top-1/4 right-0 w-8 h-8 bg-[#00C9A7]/20 rounded-full animate-floating delay-300"></div>
-              <div className="absolute bottom-0 left-10 w-12 h-12 border-2 border-[#00C9A7] rotate-45 animate-floating delay-200 opacity-60"></div>
+              
+              {/* Floating decorative elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 border-2 border-secondary rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+              <div className="absolute top-1/4 -left-8 w-6 h-6 bg-secondary/30 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute bottom-1/4 -right-6 w-10 h-10 border border-primary/40 rotate-45 animate-bounce" style={{ animationDelay: '1.5s' }}></div>
             </div>
           </div>
-
-          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-[#3D5AFE]/20 to-transparent blur-3xl rounded-full"></div>
-          <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-tr from-[#00C9A7]/20 to-transparent blur-3xl rounded-full"></div>
         </div>
+        
+        {/* Background decorative elements */}
+        <div 
+          className="absolute top-20 right-20 w-64 h-64 rounded-full opacity-10 animate-pulse"
+          style={{ 
+            background: 'var(--gradient-primary)',
+            filter: 'blur(60px)'
+          }}
+        ></div>
+        <div 
+          className="absolute bottom-20 left-20 w-48 h-48 rounded-full opacity-10 animate-pulse"
+          style={{ 
+            background: 'var(--gradient-secondary)',
+            filter: 'blur(40px)',
+            animationDelay: '1s'
+          }}
+        ></div>
       </section>
   );
 };
