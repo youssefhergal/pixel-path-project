@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AnimatedText from './AnimatedText';
 import EncryptedReveal from './EncryptedReveal';
 import ResumeDialog from './ResumeDialog';
+import TechIcons from './TechIcons';
 
 const HeroSection = () => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -164,7 +165,7 @@ const HeroSection = () => {
               >
                 <img
                     ref={imageRef}
-                    src="/src/data/youssef_profile.jpg"
+                    src="/youssef_profile.jpg"
                     alt="Developer Profile"
                     className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-300"
                 />
@@ -182,6 +183,13 @@ const HeroSection = () => {
               <div className="absolute top-1/4 -left-8 w-6 h-6 bg-secondary/30 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
               <div className="absolute bottom-1/4 -right-6 w-10 h-10 border border-primary/40 rotate-45 animate-bounce" style={{ animationDelay: '1.5s' }}></div>
             </div>
+          </div>
+        </div>
+        
+        {/* Floating Tech Icons Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="tech-icons-wrapper">
+            <TechIcons />
           </div>
         </div>
         

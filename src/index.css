@@ -280,6 +280,132 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
+
+  /* ===== FLOATING TECH ICONS ANIMATION SYSTEM ===== */
+  
+  .tech-icons-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    
+    /* Hide clip-path elements initially */
+    g[clip-path*="cliphero"] {
+      opacity: 0;
+    }
+  }
+
+  /* Main animation keyframes for floating icons */
+  @keyframes icon-float {
+    0% {
+      opacity: 0;
+      transform: scale(0.4) translateY(40px);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.2) translateY(-60px);
+    }
+  }
+
+  /* Apply animations to all tech icons */
+  .tech-icon-item {
+    /* Random transform origin for natural movement */
+    transform-origin: 50% 50% !important;
+    
+    /* Main animation */
+    animation: icon-float 10s infinite;
+    
+    /* Random delay for staggered effect */
+    animation-delay: 0s;
+    
+    /* Performance optimizations */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+
+  /* Individual icon delays for staggered animation - 30 icons */
+  .tech-icon-item:nth-child(1) { animation-delay: 0s; }
+  .tech-icon-item:nth-child(2) { animation-delay: 0.4s; }
+  .tech-icon-item:nth-child(3) { animation-delay: 0.8s; }
+  .tech-icon-item:nth-child(4) { animation-delay: 1.2s; }
+  .tech-icon-item:nth-child(5) { animation-delay: 1.6s; }
+  .tech-icon-item:nth-child(6) { animation-delay: 2.0s; }
+  .tech-icon-item:nth-child(7) { animation-delay: 2.4s; }
+  .tech-icon-item:nth-child(8) { animation-delay: 2.8s; }
+  .tech-icon-item:nth-child(9) { animation-delay: 3.2s; }
+  .tech-icon-item:nth-child(10) { animation-delay: 3.6s; }
+  .tech-icon-item:nth-child(11) { animation-delay: 4.0s; }
+  .tech-icon-item:nth-child(12) { animation-delay: 4.4s; }
+  .tech-icon-item:nth-child(13) { animation-delay: 4.8s; }
+  .tech-icon-item:nth-child(14) { animation-delay: 5.2s; }
+  .tech-icon-item:nth-child(15) { animation-delay: 5.6s; }
+  .tech-icon-item:nth-child(16) { animation-delay: 6.0s; }
+  .tech-icon-item:nth-child(17) { animation-delay: 6.4s; }
+  .tech-icon-item:nth-child(18) { animation-delay: 6.8s; }
+  .tech-icon-item:nth-child(19) { animation-delay: 7.2s; }
+  .tech-icon-item:nth-child(20) { animation-delay: 7.6s; }
+  .tech-icon-item:nth-child(21) { animation-delay: 8.0s; }
+  .tech-icon-item:nth-child(22) { animation-delay: 8.4s; }
+  .tech-icon-item:nth-child(23) { animation-delay: 8.8s; }
+  .tech-icon-item:nth-child(24) { animation-delay: 9.2s; }
+  .tech-icon-item:nth-child(25) { animation-delay: 9.6s; }
+  .tech-icon-item:nth-child(26) { animation-delay: 10.0s; }
+  .tech-icon-item:nth-child(27) { animation-delay: 10.4s; }
+  .tech-icon-item:nth-child(28) { animation-delay: 10.8s; }
+  .tech-icon-item:nth-child(29) { animation-delay: 11.2s; }
+  .tech-icon-item:nth-child(30) { animation-delay: 11.6s; }
+
+  /* Hover effects for tech icons */
+  .tech-icon-item {
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+  
+  .tech-icon-item:hover {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3));
+    animation-play-state: paused;
+  }
+
+  /* Tech icons wrapper for positioning */
+  .tech-icons-wrapper {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    opacity: 0.6;
+    filter: blur(0.5px);
+  }
+  
+  /* Ensure tech icons don't interfere with content */
+  .tech-icons-wrapper:hover {
+    opacity: 0.8;
+    filter: blur(0px);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  
+  /* Enhanced tech icon styling */
+  .tech-icon-item {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+  
+  .tech-icon-item:hover {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)) brightness(1.1);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
+  /* Add subtle glow effect to tech icons */
+  .tech-icon-item circle {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  }
   
   .tech-icon {
     display: flex;
@@ -321,6 +447,10 @@
       max-width: 350px;
       margin: 0 auto;
     }
+    
+    .tech-icons-wrapper {
+      height: 500px;
+    }
   }
   
   @media (max-width: 768px) {
@@ -336,12 +466,30 @@
       width: 70%;
       max-width: 280px;
     }
+    
+    .tech-icons-wrapper {
+      height: 400px;
+    }
+    
+    /* Slower animations on mobile */
+    .tech-icon-item {
+      animation-duration: 12s;
+    }
   }
   
   @media (max-width: 480px) {
     .photo-container {
       width: 80%;
       max-width: 240px;
+    }
+    
+    .tech-icons-wrapper {
+      height: 300px;
+    }
+    
+    .tech-icons-svg {
+      width: 70%;
+      height: 70%;
     }
   }
 }

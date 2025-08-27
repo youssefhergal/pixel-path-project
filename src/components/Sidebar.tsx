@@ -78,7 +78,7 @@ const Sidebar = () => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-3">
                 <Avatar className="h-10 w-10 border-2 border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" style={{ boxShadow: 'var(--shadow-glow)' }}>
-                  <AvatarImage src="src/data/youssef_profile.jpg" alt="Profile" />
+                  <AvatarImage src="/youssef_profile.jpg" alt="Profile" />
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <div>
