@@ -46,9 +46,9 @@ const Education = () => {
                 <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10]"></div>
                 
                 <div 
-                  className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+                  className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
                   style={{
-                    background: 'var(--gradient-card)',
+                    background: 'var(--gradient-white-gray)',
                     borderColor: 'hsl(var(--border))',
                     boxShadow: 'var(--shadow-soft)'
                   }}
@@ -102,10 +102,10 @@ const Education = () => {
             {certificationData.map((cert, index) => (
                 <div 
                 key={cert.id}
-                className="scroll-animation rounded-lg p-6 border flex transition-all duration-300 hover:scale-[1.02]"
+                className="scroll-animation rounded-xl p-6 border flex transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
                 style={{ 
                   animationDelay: `${(index + educationData.length) * 0.15}s`,
-                  background: 'var(--gradient-card)',
+                  background: 'var(--gradient-white-gray)',
                   borderColor: 'hsl(var(--border))',
                   boxShadow: 'var(--shadow-soft)'
                 }}

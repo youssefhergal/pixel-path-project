@@ -48,11 +48,19 @@ const Volunteering = () => {
       <div className="scroll-animation">
         <div className="mt-12 relative">
           <div 
-            className="overflow-hidden rounded-lg border"
+            className="overflow-hidden rounded-xl border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card group"
             style={{
-              background: 'var(--gradient-card)',
+              background: 'var(--gradient-white-gray)',
               borderColor: 'hsl(var(--border))',
-              boxShadow: 'var(--shadow-medium)'
+              boxShadow: 'var(--shadow-soft)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+              e.currentTarget.style.borderColor = 'hsl(var(--primary))';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+              e.currentTarget.style.borderColor = 'hsl(var(--border))';
             }}
           >
             <div 
@@ -145,17 +153,19 @@ const Volunteering = () => {
       <div className="mt-16 scroll-animation" style={{ animationDelay: '0.2s' }}>
         <h3 className="section-subtitle">The Impact of Volunteering</h3>
         <div 
-          className="rounded-lg p-8 border transition-all duration-300 hover:scale-[1.01]"
+          className="rounded-xl p-8 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
           style={{
-            background: 'var(--gradient-card)',
+            background: 'var(--gradient-white-gray)',
             borderColor: 'hsl(var(--border))',
             boxShadow: 'var(--shadow-soft)'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
+            e.currentTarget.style.borderColor = 'hsl(var(--primary))';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
+            e.currentTarget.style.borderColor = 'hsl(var(--border))';
           }}
         >
           <p className="text-[#A0A0A0] mb-4">

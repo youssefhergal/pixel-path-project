@@ -65,9 +65,9 @@ const About = () => {
 
           <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
             <div 
-              className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
               style={{
-                background: 'var(--gradient-card)',
+                background: 'var(--gradient-white-gray)',
                 borderColor: 'hsl(var(--border))',
                 boxShadow: 'var(--shadow-soft)'
               }}
@@ -89,12 +89,20 @@ const About = () => {
                         <span className="text-primary">{skillGroup.icon}</span>
                         <h4 className="text-lg font-medium text-secondary">{skillGroup.category}</h4>
                       </div>
-                      <div className="flex flex-wrap">
-                        {skillGroup.items.map((skill) => (
-                            <span key={skill} className="tech-badge hover:scale-110 hover:shadow-md transition-all duration-300">
-                        {skill}
-                      </span>
-                        ))}
+                       <div className="flex flex-wrap">
+                         {skillGroup.items.map((skill) => (
+                             <span 
+                               key={skill} 
+                               className="text-xs py-2 px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border"
+                               style={{
+                                 background: 'var(--gradient-hover)',
+                                 color: 'hsl(var(--primary))',
+                                 boxShadow: 'var(--shadow-glow)'
+                               }}
+                             >
+                               {skill}
+                             </span>
+                         ))}
                       </div>
                     </div>
                 ))}

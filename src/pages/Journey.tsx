@@ -36,9 +36,9 @@ const Journey = () => {
             <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10]"></div>
             
             <div 
-              className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
               style={{
-                background: 'var(--gradient-card)',
+                background: 'var(--gradient-white-gray)',
                 borderColor: 'hsl(var(--border))',
                 boxShadow: 'var(--shadow-soft)'
               }}
@@ -72,7 +72,15 @@ const Journey = () => {
               
               <div className="flex flex-wrap">
                 {item.technologies.map((tech) => (
-                  <span key={tech} className="tech-badge">
+                  <span 
+                    key={tech} 
+                    className="text-xs py-2 px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border"
+                    style={{
+                      background: 'var(--gradient-hover)',
+                      color: 'hsl(var(--primary))',
+                      boxShadow: 'var(--shadow-glow)'
+                    }}
+                  >
                     {tech}
                   </span>
                 ))}
