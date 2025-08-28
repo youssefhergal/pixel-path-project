@@ -31,7 +31,7 @@ const Contact = () => {
     
     // Simulate form submission
     setTimeout(() => {
-      console.log('Form submitted:', formData);
+      // Form submitted successfully
       toast.success('Message sent successfully!', {
         description: 'Thank you for reaching out. I\'ll get back to you soon.',
       });
@@ -75,7 +75,7 @@ const Contact = () => {
     <div className="page-container lg:ml-64 bg-background transition-colors duration-200">
       <SectionTitle title="Contact Me" subtitle="Get in touch with me" />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
         <div className="scroll-animation">
           <h3 className="section-subtitle">Send Me a Message</h3>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -95,7 +95,7 @@ const Contact = () => {
                   borderColor: 'hsl(var(--border))',
                   color: 'hsl(var(--foreground))'
                 }}
-                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="John Doe"
               />
             </div>
@@ -116,7 +116,7 @@ const Contact = () => {
                   borderColor: 'hsl(var(--border))',
                   color: 'hsl(var(--foreground))'
                 }}
-                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="john.doe@example.com"
               />
             </div>
@@ -137,7 +137,7 @@ const Contact = () => {
                   borderColor: 'hsl(var(--border))',
                   color: 'hsl(var(--foreground))'
                 }}
-                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="Project Inquiry"
               />
             </div>
@@ -152,13 +152,13 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={6}
+                rows={5}
                 style={{
                   background: 'var(--gradient-card)',
                   borderColor: 'hsl(var(--border))',
                   color: 'hsl(var(--foreground))'
                 }}
-                className="w-full px-4 py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none transition-all duration-300 hover:shadow-md"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="Your message here..."
               />
             </div>
@@ -170,7 +170,7 @@ const Contact = () => {
                 background: 'var(--gradient-primary)',
                 boxShadow: 'var(--shadow-medium)'
               }}
-              className="w-full px-6 py-3 text-primary-foreground rounded-md hover:scale-105 transition-all duration-300 flex items-center justify-center"
+              className="w-full px-4 py-2 sm:px-6 sm:py-3 text-primary-foreground rounded-md hover:scale-105 transition-all duration-300 flex items-center justify-center text-sm sm:text-base font-medium"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -226,7 +226,7 @@ const Contact = () => {
           </div>
           
           <h3 className="section-subtitle">Follow Me</h3>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -237,7 +237,7 @@ const Contact = () => {
                   background: 'var(--gradient-card)',
                   borderColor: 'hsl(var(--border))'
                 }}
-                className="flex items-center gap-2 px-6 py-3 border rounded-md hover:border-secondary hover:text-secondary hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 border rounded-md hover:border-secondary hover:text-secondary hover:scale-105 transition-all duration-300 text-sm sm:text-base justify-center sm:justify-start"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
                 }}

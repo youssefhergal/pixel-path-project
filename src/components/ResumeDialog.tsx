@@ -50,7 +50,7 @@ const ResumeDialog = ({ children }: ResumeDialogProps) => {
     
     try {
       // Simulate API call to send resume
-      console.log('Sending resume to:', data);
+      // Sending resume to specified email
       
       // Here you would typically make an API call to your backend
       // that would send the resume via email from youssefhergal.com

@@ -42,7 +42,7 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               {featuredProjects.map((project, index) => (
                   <ProjectCard
                       key={project.id}
@@ -63,12 +63,12 @@ const Home = () => {
           <div className="scroll-animation">
             <SectionTitle title="Get In Touch" />
             <div className="max-w-2xl mx-auto text-center">
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
                 I'm currently seeking an apprenticeship starting October 2025 as part of my CTO & Tech Lead program (1 week school / 3 weeks company). If you're working on innovative technical projects, let's connect!
               </p>
               <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-primary-foreground rounded-lg hover:scale-105 transition-all duration-300 text-sm sm:text-base font-medium"
                   style={{ 
                     background: 'var(--gradient-primary)',
                     boxShadow: 'var(--shadow-medium)'
