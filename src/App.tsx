@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useIsMobile } from "./hooks/use-mobile";
 import Sidebar from "./components/Sidebar";
-import MobileLandingPage from "./components/MobileLandingPage";
+import MobileLayout from "./components/MobileLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -32,9 +32,7 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             {isMobile ? (
-              <div className="min-h-screen bg-background">
-                <MobileLandingPage />
-              </div>
+              <MobileLayout />
             ) : (
               <div className="min-h-screen flex bg-background transition-colors duration-300">
                 <Sidebar />
