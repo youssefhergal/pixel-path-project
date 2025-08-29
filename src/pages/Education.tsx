@@ -27,7 +27,7 @@ const Education = () => {
     <div className="page-container lg:ml-64">
       <SectionTitle title="Education" subtitle="My academic background and certifications" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 gap-8 lg:gap-12">
         <div>
           <h3 className="text-xl font-medium mb-6 text-[#00C9A7]">
             <div className="flex items-center gap-2">
@@ -36,14 +36,14 @@ const Education = () => {
             </div>
           </h3>
           
-          <div className="relative border-l border-[#3D5AFE]/30 pl-8 space-y-12 ml-4">
+          <div className="relative lg:border-l lg:border-[#3D5AFE]/30 lg:pl-8 space-y-8 lg:space-y-12 lg:ml-4">
             {educationData.map((item, index) => (
               <div 
                 key={item.id} 
                 className="scroll-animation"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10]"></div>
+                <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10] hidden lg:block"></div>
                 
                 <div 
                   className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"

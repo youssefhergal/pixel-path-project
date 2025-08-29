@@ -26,14 +26,14 @@ const Journey = () => {
     <div className="page-container lg:ml-64">
       <SectionTitle title="Professional Journey" subtitle="My work experience and career milestones" />
 
-      <div className="relative border-l border-primary/30 pl-8 space-y-16 ml-4">
+      <div className="relative lg:border-l lg:border-primary/30 lg:pl-8 space-y-8 lg:space-y-16 lg:ml-4">
         {journeyData.map((item, index) => (
           <div 
             key={item.id} 
             className="scroll-animation"
             style={{ animationDelay: `${index * 0.2}s` }}
           >
-            <div className="absolute w-4 h-4 bg-primary rounded-full -left-2 mt-2 border-4 border-background"></div>
+            <div className="absolute w-4 h-4 bg-primary rounded-full -left-2 mt-2 border-4 border-background hidden lg:block"></div>
             
             <div 
               className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"

@@ -86,27 +86,27 @@ const MobileLayout = () => {
           <HeroSection />
         </section>
 
-        <section id="about" className="py-16">
+        <section id="about">
           <About />
         </section>
 
-        <section id="projects" className="py-16">
+        <section id="projects">
           <Projects />
         </section>
 
-        <section id="journey" className="py-16">
+        <section id="journey">
           <Journey />
         </section>
 
-        <section id="education" className="py-16">
+        <section id="education">
           <Education />
         </section>
 
-        <section id="volunteering" className="py-16">
+        <section id="volunteering">
           <Volunteering />
         </section>
 
-        <section id="contact" className="py-16">
+        <section id="contact">
           <Contact />
         </section>
       </div>
