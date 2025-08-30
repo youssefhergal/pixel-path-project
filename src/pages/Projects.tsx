@@ -3,14 +3,27 @@ import React, { useEffect, useState, useRef } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/projectsData';
-import { Filter } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState<string>('all');
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Extract unique tech stack items
   const techFilters = ['all', ...new Set(projectsData.flatMap(project => project.techStack))];
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     if (filter === 'all') {
@@ -53,26 +66,46 @@ const Projects = () => {
             <p className="text-muted-foreground">Choose a technology to filter projects</p>
           </div>
           
-          {/* Modern chip-style filter */}
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {techFilters.map((tech) => (
-              <button
-                key={tech}
-                onClick={() => setFilter(tech)}
-                className={`group relative px-4 py-2 rounded-full transition-all duration-300 font-medium text-sm hover:scale-105 border-2 ${
-                  filter === tech 
-                    ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground border-transparent shadow-lg scale-105' 
-                    : 'bg-background/80 backdrop-blur-sm text-foreground border-border hover:border-primary/50 hover:bg-accent/10'
-                }`}
-              >
-                <span className="relative z-10">
-                  {tech === 'all' ? '🚀 All Projects' : tech}
-                </span>
-                {filter !== tech && (
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                )}
-              </button>
-            ))}
+          {/* Horizontal scrollable filter with arrows */}
+          <div className="relative max-w-4xl mx-auto">
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+            >
+              <ChevronLeft size={20} className="text-foreground" />
+            </button>
+            
+            <div
+              ref={scrollContainerRef}
+              className="flex gap-3 overflow-x-auto scrollbar-hide px-12 py-2"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {techFilters.map((tech) => (
+                <button
+                  key={tech}
+                  onClick={() => setFilter(tech)}
+                  className={`group relative px-4 py-2 rounded-full transition-all duration-300 font-medium text-sm hover:scale-105 border-2 flex-shrink-0 ${
+                    filter === tech 
+                      ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground border-transparent shadow-lg scale-105' 
+                      : 'bg-background/80 backdrop-blur-sm text-foreground border-border hover:border-primary/50 hover:bg-accent/10'
+                  }`}
+                >
+                  <span className="relative z-10">
+                    {tech === 'all' ? '🚀 All Projects' : tech}
+                  </span>
+                  {filter !== tech && (
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  )}
+                </button>
+              ))}
+            </div>
+            
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+            >
+              <ChevronRight size={20} className="text-foreground" />
+            </button>
           </div>
         </div>
 
