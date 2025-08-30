@@ -21,12 +21,74 @@ const About = () => {
   useScrollAnimation();
 
   const skills = [
-    { category: "Languages", icon: <Code2 size={20} />, items: ["Java", "Python", "R", "PHP", "JavaScript", "Shell"] },
-    { category: "Frontend", icon: <Globe size={20} />, items: ["React.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3"] },
-    { category: "Backend", icon: <Server size={20} />, items: ["Node.js", "Spring", "JEE", "Laravel", "Flask", "Hibernate"] },
-    { category: "Databases", icon: <Database size={20} />, items: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "Snowflake"] },
-    { category: "Tools & DevOps", icon: <Wrench size={20} />, items: ["Git", "Docker", "CI/CD", "Databricks", "Jenkins", "Swagger", "Postman"] },
-    { category: "Data Science & ML", icon: <Brain size={20} />, items: ["TensorFlow", "PyTorch", "NumPy", "Scikit-learn", "Apache Spark", "Hadoop"] },
+    { 
+      category: "Languages", 
+      icon: <Code2 size={20} />, 
+      items: [
+        { name: "Java", icon: "/icons/tech/Java.svg" },
+        { name: "Python", icon: "/icons/tech/Python.svg" },
+        { name: "R", icon: "/icons/tech/R.svg" },
+        { name: "PHP", icon: "/icons/tech/PHP.svg" },
+        { name: "JavaScript", icon: "/icons/tech/JavaScript.svg" },
+        { name: "Shell", icon: "/icons/tech/Shell.svg" }
+      ]
+    },
+    { 
+      category: "Frontend", 
+      icon: <Globe size={20} />, 
+      items: [
+        { name: "React.js", icon: "/icons/tech/React.svg" },
+        { name: "Angular", icon: "/icons/tech/Angular.svg" },
+        { name: "Next.js", icon: "/icons/tech/Next.js.svg" },
+        { name: "Tailwind CSS", icon: "/icons/tech/Tailwind CSS.svg" },
+        { name: "Bootstrap", icon: "/icons/tech/Bootstrap.svg" },
+        { name: "HTML5", icon: "/icons/tech/HTML5.svg" },
+        { name: "CSS3", icon: "/icons/tech/CSS3.svg" }
+      ]
+    },
+    { 
+      category: "Backend", 
+      icon: <Server size={20} />, 
+      items: [
+        { name: "Node.js", icon: "/icons/tech/Node.js.svg" },
+        { name: "Spring", icon: "/icons/tech/Spring.svg" },
+        { name: "Laravel", icon: "/icons/tech/Laravel.svg" },
+        { name: "Flask", icon: "/icons/tech/Flask.svg" }
+      ]
+    },
+    { 
+      category: "Databases", 
+      icon: <Database size={20} />, 
+      items: [
+        { name: "MySQL", icon: "/icons/tech/MySQL.svg" },
+        { name: "PostgreSQL", icon: "/icons/tech/PostgresSQL.svg" },
+        { name: "Oracle", icon: "/icons/tech/Oracle.svg" },
+        { name: "MongoDB", icon: "/icons/tech/MongoDB.svg" },
+        { name: "Snowflake", icon: "/icons/tech/Snowflake.svg" }
+      ]
+    },
+    { 
+      category: "Tools & DevOps", 
+      icon: <Wrench size={20} />, 
+      items: [
+        { name: "Git", icon: "/icons/tech/Git.svg" },
+        { name: "Docker", icon: "/icons/tech/Docker.svg" },
+        { name: "Jenkins", icon: "/icons/tech/Jenkins.svg" },
+        { name: "Swagger", icon: "/icons/tech/Swagger.svg" },
+        { name: "Postman", icon: "/icons/tech/Postman.svg" }
+      ]
+    },
+    { 
+      category: "Data Science & ML", 
+      icon: <Brain size={20} />, 
+      items: [
+        { name: "TensorFlow", icon: "/icons/tech/TensorFlow.svg" },
+        { name: "PyTorch", icon: "/icons/tech/PyTorch.svg" },
+        { name: "NumPy", icon: "/icons/tech/NumPy.svg" },
+        { name: "Apache Spark", icon: "/icons/tech/Apache Spark.svg" },
+        { name: "Hadoop", icon: "/icons/tech/Hadoop.svg" }
+      ]
+    }
   ];
 
   return (
@@ -89,19 +151,22 @@ const About = () => {
                         <span className="text-primary">{skillGroup.icon}</span>
                         <h4 className="text-lg font-medium text-secondary">{skillGroup.category}</h4>
                       </div>
-                       <div className="flex flex-wrap">
+                       <div className="flex flex-wrap gap-3">
                          {skillGroup.items.map((skill) => (
-                             <span 
-                               key={skill} 
-                               className="text-xs py-2 px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border"
+                             <div 
+                               key={skill.name} 
+                               className="flex items-center justify-center p-3 rounded-lg border border-border hover:scale-110 transition-all duration-300 bg-card/50 hover:bg-card group relative"
                                style={{
-                                 background: 'var(--gradient-hover)',
-                                 color: 'hsl(var(--primary))',
                                  boxShadow: 'var(--shadow-glow)'
                                }}
+                               title={skill.name}
                              >
-                               {skill}
-                             </span>
+                               <img 
+                                 src={skill.icon} 
+                                 alt={skill.name}
+                                 className="w-8 h-8 object-contain"
+                               />
+                             </div>
                          ))}
                       </div>
                     </div>
