@@ -151,11 +151,11 @@ const About = () => {
                         <span className="text-primary">{skillGroup.icon}</span>
                         <h4 className="text-lg font-medium text-secondary">{skillGroup.category}</h4>
                       </div>
-                       <div className="flex flex-wrap gap-3">
+                       <div className="flex flex-wrap gap-2">
                          {skillGroup.items.map((skill) => (
                              <div 
                                key={skill.name} 
-                               className="flex items-center justify-center p-3 rounded-lg border border-border hover:scale-110 transition-all duration-300 bg-card/50 hover:bg-card group relative"
+                               className="flex items-center justify-center p-2 rounded-lg border border-border hover:scale-110 transition-all duration-300 bg-card/50 hover:bg-card group relative"
                                style={{
                                  boxShadow: 'var(--shadow-glow)'
                                }}
@@ -164,7 +164,7 @@ const About = () => {
                                <img 
                                  src={skill.icon} 
                                  alt={skill.name}
-                                 className="w-8 h-8 object-contain"
+                                 className="w-6 h-6 object-contain"
                                />
                              </div>
                          ))}
