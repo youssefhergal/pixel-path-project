@@ -46,30 +46,33 @@ const Projects = () => {
         <SectionTitle title="Projects" subtitle="A selection of my technical work" />
         
         <div className="mb-10">
-          <div className="flex items-center mb-6 text-[#3D5AFE] dark:text-[#3D5AFE]">
-            <div className="bg-gray-100 dark:bg-[#1A1A1E] p-3 rounded-full shadow-md mr-3">
-              <Filter size={20} className="text-[#3D5AFE] dark:text-[#00C9A7]" />
-            </div>
-            <h3 className="text-xl font-medium text-gray-900 dark:text-[#F5F5F5]">Filter Projects</h3>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
+              Filter by Technology
+            </h3>
+            <p className="text-muted-foreground">Choose a technology to filter projects</p>
           </div>
           
-          {/* Horizontal scrolling filter container with default scrollbar */}
-          <div className="overflow-x-auto pb-4">
-            <div className="flex gap-3 min-w-max px-2">
-              {techFilters.map((tech) => (
-                <button
-                  key={tech}
-                  onClick={() => setFilter(tech)}
-                  className={`flex-shrink-0 px-6 py-3 rounded-xl transition-all duration-300 font-medium shadow-sm whitespace-nowrap text-sm md:text-base hover:scale-105 hover:shadow-lg
-                    ${filter === tech 
-                      ? 'bg-gradient-to-r from-[#3D5AFE] to-[#00C9A7] text-white dark:text-[#F5F5F5] shadow-xl transform scale-105' 
-                      : 'bg-white dark:bg-[#1A1A1E] text-gray-700 dark:text-[#A0A0A0] hover:bg-gray-50 dark:hover:bg-[#1A1A1E]/80 hover:text-[#3D5AFE] dark:hover:text-[#F5F5F5] border border-gray-200 dark:border-[#3D5AFE]/20 hover:border-[#3D5AFE]/40'
-                    }`}
-                >
-                  {tech === 'all' ? 'All Projects' : tech}
-                </button>
-              ))}
-            </div>
+          {/* Modern chip-style filter */}
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {techFilters.map((tech) => (
+              <button
+                key={tech}
+                onClick={() => setFilter(tech)}
+                className={`group relative px-4 py-2 rounded-full transition-all duration-300 font-medium text-sm hover:scale-105 border-2 ${
+                  filter === tech 
+                    ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground border-transparent shadow-lg scale-105' 
+                    : 'bg-background/80 backdrop-blur-sm text-foreground border-border hover:border-primary/50 hover:bg-accent/10'
+                }`}
+              >
+                <span className="relative z-10">
+                  {tech === 'all' ? '🚀 All Projects' : tech}
+                </span>
+                {filter !== tech && (
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                )}
+              </button>
+            ))}
           </div>
         </div>
 
