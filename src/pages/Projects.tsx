@@ -59,18 +59,11 @@ const Projects = () => {
         <SectionTitle title="Projects" subtitle="A selection of my technical work" />
         
         <div className="mb-10">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
-              Filter by Technology
-            </h3>
-            <p className="text-muted-foreground">Choose a technology to filter projects</p>
-          </div>
-          
           {/* Horizontal scrollable filter with arrows */}
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative w-full">
             <button
               onClick={scrollLeft}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
             >
               <ChevronLeft size={20} className="text-foreground" />
             </button>
@@ -84,7 +77,7 @@ const Projects = () => {
                 <button
                   key={tech}
                   onClick={() => setFilter(tech)}
-                  className={`group relative px-4 py-2 rounded-full transition-all duration-300 font-medium text-sm hover:scale-105 border-2 flex-shrink-0 ${
+                  className={`group relative px-4 py-2 rounded-md transition-all duration-300 font-medium text-sm hover:scale-105 border-2 flex-shrink-0 ${
                     filter === tech 
                       ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground border-transparent shadow-lg scale-105' 
                       : 'bg-background/80 backdrop-blur-sm text-foreground border-border hover:border-primary/50 hover:bg-accent/10'
@@ -94,7 +87,7 @@ const Projects = () => {
                     {tech === 'all' ? '🚀 All Projects' : tech}
                   </span>
                   {filter !== tech && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   )}
                 </button>
               ))}
@@ -102,7 +95,7 @@ const Projects = () => {
             
             <button
               onClick={scrollRight}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
             >
               <ChevronRight size={20} className="text-foreground" />
             </button>

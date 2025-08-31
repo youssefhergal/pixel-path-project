@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   
   return (
     <div 
-      className="project-card-animation border rounded-xl overflow-hidden transition-all duration-300 h-full hover:scale-105 hover:shadow-2xl border-border bg-card group"
+      className="project-card-animation border rounded-xl overflow-hidden transition-all duration-300 h-full hover:scale-105 hover:shadow-2xl border-border bg-card group flex flex-col"
       style={{ 
         animationDelay: `${index * 0.1}s`,
         background: 'var(--gradient-white-gray)',
@@ -71,14 +71,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
       
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <p className="text-base mb-4 text-card-foreground">{description}</p>
         
-        <div className="flex flex-wrap mb-6">
+        <div className="flex flex-wrap mb-6 flex-1">
           {techStack.map((tech) => (
             <span 
               key={tech} 
-              className="text-xs py-2 px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border"
+              className="text-xs py-2 px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border h-fit"
               style={{
                 background: 'var(--gradient-hover)',
                 color: 'hsl(var(--primary))',
@@ -90,7 +90,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
         
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-auto">
           <a 
             href={githubLink}
             target="_blank"
