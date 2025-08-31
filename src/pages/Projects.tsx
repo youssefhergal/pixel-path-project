@@ -1,29 +1,16 @@
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/projectsData';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ScrollArea, ScrollBar } from '../components/ui/scroll-area';
 
 const Projects = () => {
   const [filter, setFilter] = useState<string>('all');
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Extract unique tech stack items
   const techFilters = ['all', ...new Set(projectsData.flatMap(project => project.techStack))];
-
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
-    }
-  };
 
   useEffect(() => {
     if (filter === 'all') {
@@ -59,20 +46,8 @@ const Projects = () => {
         <SectionTitle title="Projects" subtitle="A selection of my technical work" />
         
         <div className="mb-10">
-          {/* Horizontal scrollable filter with arrows */}
-          <div className="relative w-full">
-            <button
-              onClick={scrollLeft}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
-            >
-              <ChevronLeft size={20} className="text-foreground" />
-            </button>
-            
-            <div
-              ref={scrollContainerRef}
-              className="flex gap-3 overflow-x-auto scrollbar-hide px-12 py-2"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
+          <ScrollArea className="w-full whitespace-nowrap">
+            <div className="flex gap-3 px-4 py-2">
               {techFilters.map((tech) => (
                 <button
                   key={tech}
@@ -92,14 +67,8 @@ const Projects = () => {
                 </button>
               ))}
             </div>
-            
-            <button
-              onClick={scrollRight}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/90 backdrop-blur-sm border border-border hover:bg-accent/10 rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
-            >
-              <ChevronRight size={20} className="text-foreground" />
-            </button>
-          </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
