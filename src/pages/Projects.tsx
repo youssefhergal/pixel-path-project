@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProjectCard from '../components/ProjectCard';
