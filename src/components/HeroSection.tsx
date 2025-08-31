@@ -143,7 +143,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="lg:w-1/3 relative flex justify-center animate-scale-in mb-8 lg:mb-0" style={{ animationDelay: '1s' }}>
+          <div className="lg:w-1/3 relative flex justify-center animate-slide-in-right mb-8 lg:mb-0" style={{ animationDelay: '1s' }}>
             <div className="relative w-64 sm:w-80 md:w-full max-w-sm">
               {/* Animated gradient background */}
               <div 

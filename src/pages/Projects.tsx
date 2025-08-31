@@ -46,7 +46,7 @@ const Projects = () => {
         
         <div className="mb-10">
           <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex gap-3 px-4 py-2">
+            <div className="flex gap-3 px-4 py-2 mb-3">
               {techFilters.map((tech) => (
                 <button
                   key={tech}
