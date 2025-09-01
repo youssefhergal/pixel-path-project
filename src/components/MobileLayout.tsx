@@ -154,9 +154,11 @@ const MobileLayout = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 rounded-full hover:scale-110 hover:bg-accent/50"
+                  className="text-muted-foreground transition-all duration-300 p-2 rounded-full hover:scale-110 hover:bg-accent/50"
                 >
-                  {social.icon}
+                  <span className={`social-icon ${social.label.toLowerCase()}`}>
+                    {social.icon}
+                  </span>
                 </a>
               ))}
             </div>

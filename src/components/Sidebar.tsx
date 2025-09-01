@@ -165,21 +165,21 @@ const Sidebar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 rounded-full hover:scale-110 hover:shadow-lg"
+                  className="text-muted-foreground transition-all duration-300 p-2 rounded-full hover:scale-110 hover:shadow-lg"
                   style={{
                     background: 'var(--gradient-hover)',
                     boxShadow: 'var(--shadow-soft)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = 'var(--gradient-primary)';
-                    e.currentTarget.style.color = 'white';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'var(--gradient-hover)';
-                    e.currentTarget.style.color = '';
                   }}
                 >
-                  {social.icon}
+                  <span className={`social-icon ${social.label.toLowerCase()}`}>
+                    {social.icon}
+                  </span>
                 </a>
               ))}
             </div>

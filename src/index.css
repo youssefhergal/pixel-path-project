@@ -64,6 +64,11 @@
     --shadow-soft: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
     --shadow-medium: 0 10px 15px -3px rgba(99, 102, 241, 0.1), 0 4px 6px -2px rgba(99, 102, 241, 0.05);
     --shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.05), 0 1px 3px 0 rgba(99, 102, 241, 0.1);
+    
+    /** Social Network Brand Colors */
+    --github-color: 24 23 23;
+    --linkedin-color: 14 118 168;
+    --twitter-color: 29 161 242;
   }
 
   .dark {
@@ -124,6 +129,11 @@
     --shadow-soft: 0 4px 6px -1px rgba(99, 102, 241, 0.2), 0 2px 4px -1px rgba(99, 102, 241, 0.1);
     --shadow-medium: 0 10px 15px -3px rgba(99, 102, 241, 0.2), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
     --shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.1), 0 1px 3px 0 rgba(99, 102, 241, 0.2);
+    
+    /** Social Network Brand Colors */
+    --github-color: 24 23 23;
+    --linkedin-color: 14 118 168;
+    --twitter-color: 29 161 242;
   }
 }
 
@@ -497,6 +507,23 @@
   .volunteering-gallery .image-gallery-fullscreen-button:hover {
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
+  }
+
+  /* Social Icons Brand Color Hover Effects */
+  .social-icon {
+    transition: color 0.3s ease;
+  }
+
+  .social-icon.github:hover {
+    color: hsl(var(--github-color));
+  }
+
+  .social-icon.linkedin:hover {
+    color: hsl(var(--linkedin-color));
+  }
+
+  .social-icon.twitter:hover {
+    color: hsl(var(--twitter-color));
   }
   
 }

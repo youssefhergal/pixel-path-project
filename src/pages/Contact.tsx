@@ -237,7 +237,7 @@ const Contact = () => {
                   background: 'var(--gradient-card)',
                   borderColor: 'hsl(var(--border))'
                 }}
-                className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 border rounded-md hover:border-secondary hover:text-secondary hover:scale-105 transition-all duration-300 text-sm sm:text-base justify-center sm:justify-start"
+                className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 border rounded-md hover:border-secondary hover:scale-105 transition-all duration-300 text-sm sm:text-base justify-center sm:justify-start"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
                 }}
@@ -245,7 +245,9 @@ const Contact = () => {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                {social.icon}
+                <span className={`social-icon ${social.name.toLowerCase()}`}>
+                  {social.icon}
+                </span>
                 <span>{social.name}</span>
               </a>
             ))}
