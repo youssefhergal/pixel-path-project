@@ -79,8 +79,8 @@ const Volunteering = () => {
                       <ImageGallery
                         items={item.images}
                         showPlayButton={false}
-                        showFullscreenButton={true}
-                        showNav={true}
+                        showFullscreenButton={false}
+                        showNav={false}
                         showThumbnails={true}
                         thumbnailPosition="bottom"
                         slideDuration={450}
