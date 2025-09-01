@@ -84,14 +84,15 @@ const Volunteering = () => {
                         showThumbnails={true}
                         thumbnailPosition="bottom"
                         slideDuration={450}
-                        slideInterval={3000}
+                        slideInterval={1500}
                         infinite={true}
                         lazyLoad={true}
+                        autoPlay={true}
                         additionalClass="volunteering-gallery"
                       />
                     </div>
                     
-                    <div className="md:w-1/2 p-8">
+                    <div className="md:w-1/2 p-8 text-center">
                       <div className="mb-6">
                         <h4 className="text-xl font-medium text-[#F5F5F5]">{item.title}</h4>
                         <p className="text-[#00C9A7]">{item.organization}</p>
@@ -100,7 +101,7 @@ const Volunteering = () => {
                         </p>
                       </div>
                       
-                      <p className="text-[#A0A0A0]">{item.description}</p>
+                      <p className="text-[#A0A0A0] text-center">{item.description}</p>
                     </div>
                   </div>
                 </div>
