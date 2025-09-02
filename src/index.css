@@ -512,22 +512,17 @@
   /* Social Icons Brand Color Hover Effects */
   .social-icon {
     transition: all 0.3s ease;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
   }
 
   .social-icon.github:hover {
-    background-color: hsl(var(--github-color));
     color: white;
   }
 
   .social-icon.linkedin:hover {
-    background-color: hsl(var(--linkedin-color));
     color: white;
   }
 
   .social-icon.twitter:hover {
-    background-color: hsl(var(--twitter-color));
     color: white;
   }
   

@@ -239,9 +239,18 @@ const Contact = () => {
                 }}
                 className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 border rounded-md hover:border-secondary hover:scale-105 transition-all duration-300 text-sm sm:text-base justify-center sm:justify-start"
                 onMouseEnter={(e) => {
+                  const socialIcon = e.currentTarget.querySelector('.social-icon');
+                  if (socialIcon?.classList.contains('github')) {
+                    e.currentTarget.style.background = 'hsl(var(--github-color))';
+                  } else if (socialIcon?.classList.contains('linkedin')) {
+                    e.currentTarget.style.background = 'hsl(var(--linkedin-color))';
+                  } else if (socialIcon?.classList.contains('twitter')) {
+                    e.currentTarget.style.background = 'hsl(var(--twitter-color))';
+                  }
                   e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
                 }}
                 onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'var(--gradient-card)';
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
