@@ -50,9 +50,9 @@
     --clr-background: #F7F9FC;
     --clr-surface: #FCFCFD;
     --clr-accent-primary: #6366F1;
-    --clr-accent-secondary: #06B6D4;
-    --clr-highlight-text: #2D3748;
-    --clr-muted-text: #718096;
+    --clr-accent-secondary: #0891B2;
+    --clr-highlight-text: #1A202C;
+    --clr-muted-text: #4A5568;
     
     /** Gradients */
     --gradient-white-gray: linear-gradient(135deg, #FCFCFD 0%, #F1F5F9 40%, #E2E8F0 100%);
