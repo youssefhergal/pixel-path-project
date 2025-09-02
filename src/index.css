@@ -511,19 +511,19 @@
 
   /* Social Icons Brand Color Hover Effects */
   .social-icon {
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
   }
 
   .social-icon.github:hover {
-    color: white;
+    color: hsl(var(--github-color));
   }
 
   .social-icon.linkedin:hover {
-    color: white;
+    color: hsl(var(--linkedin-color));
   }
 
   .social-icon.twitter:hover {
-    color: white;
+    color: hsl(var(--twitter-color));
   }
   
 }

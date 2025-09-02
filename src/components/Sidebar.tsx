@@ -171,15 +171,7 @@ const Sidebar = () => {
                     boxShadow: 'var(--shadow-soft)'
                   }}
                   onMouseEnter={(e) => {
-                    const parent = e.currentTarget;
-                    const socialIcon = parent.querySelector('.social-icon');
-                    if (socialIcon?.classList.contains('github')) {
-                      parent.style.background = 'hsl(var(--github-color))';
-                    } else if (socialIcon?.classList.contains('linkedin')) {
-                      parent.style.background = 'hsl(var(--linkedin-color))';
-                    } else if (socialIcon?.classList.contains('twitter')) {
-                      parent.style.background = 'hsl(var(--twitter-color))';
-                    }
+                    e.currentTarget.style.background = 'var(--gradient-primary)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'var(--gradient-hover)';

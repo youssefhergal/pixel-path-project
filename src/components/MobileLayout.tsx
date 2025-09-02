@@ -155,19 +155,6 @@ const MobileLayout = () => {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   className="text-muted-foreground transition-all duration-300 p-2 rounded-full hover:scale-110 hover:bg-accent/50"
-                  onMouseEnter={(e) => {
-                    const socialIcon = e.currentTarget.querySelector('.social-icon');
-                    if (socialIcon?.classList.contains('github')) {
-                      e.currentTarget.style.backgroundColor = 'hsl(var(--github-color))';
-                    } else if (socialIcon?.classList.contains('linkedin')) {
-                      e.currentTarget.style.backgroundColor = 'hsl(var(--linkedin-color))';
-                    } else if (socialIcon?.classList.contains('twitter')) {
-                      e.currentTarget.style.backgroundColor = 'hsl(var(--twitter-color))';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '';
-                  }}
                 >
                   <span className={`social-icon ${social.label.toLowerCase()}`}>
                     {social.icon}
