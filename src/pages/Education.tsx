@@ -29,21 +29,21 @@ const Education = () => {
       
       <div className="grid grid-cols-1 gap-8 lg:gap-12">
         <div>
-          <h3 className="text-xl font-medium mb-6 text-[#00C9A7]">
+          <h3 className="text-xl font-medium mb-6 text-secondary">
             <div className="flex items-center gap-2">
-              <GraduationCap className="text-[#3D5AFE]" />
+              <GraduationCap className="text-primary" />
               <span>Academic Background</span>
             </div>
           </h3>
           
-          <div className="relative lg:border-l lg:border-[#3D5AFE]/30 lg:pl-8 space-y-8 lg:space-y-12 lg:ml-4">
+          <div className="relative lg:border-l lg:border-primary/30 lg:pl-8 space-y-8 lg:space-y-12 lg:ml-4">
             {educationData.map((item, index) => (
               <div 
                 key={item.id} 
                 className="scroll-animation"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="absolute w-4 h-4 bg-[#3D5AFE] rounded-full -left-2 mt-2 border-4 border-[#0E0E10] hidden lg:block"></div>
+                <div className="absolute w-4 h-4 bg-primary rounded-full -left-2 mt-2 border-4 border-background hidden lg:block"></div>
                 
                 <div 
                   className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
@@ -62,22 +62,22 @@ const Education = () => {
                   }}
                 >
                   <div className="flex flex-col md:justify-between md:items-start mb-4">
-                    <h4 className="text-xl font-medium text-[#F5F5F5]">{item.degree}</h4>
-                    <p className="text-lg text-[#00C9A7]">{item.institution} • {item.location}</p>
-                    <p className="text-[#A0A0A0] text-sm">
+                    <h4 className="text-xl font-medium text-foreground">{item.degree}</h4>
+                    <p className="text-lg text-secondary">{item.institution} • {item.location}</p>
+                    <p className="text-muted-foreground text-sm">
                       {item.startDate} – {item.endDate}
                     </p>
                   </div>
                   
-                  <p className="text-[#A0A0A0] mb-4">{item.description}</p>
+                  <p className="text-muted-foreground mb-4">{item.description}</p>
                   
                   {item.achievements && item.achievements.length > 0 && (
                     <div>
-                      <h5 className="text-sm font-medium text-[#F5F5F5] mb-2">Achievements:</h5>
-                      <ul className="space-y-1 text-sm text-[#A0A0A0]">
+                      <h5 className="text-sm font-medium text-foreground mb-2">Achievements:</h5>
+                      <ul className="space-y-1 text-sm text-muted-foreground">
                         {item.achievements.map((achievement, i) => (
                           <li key={i} className="flex">
-                            <span className="mr-2 text-[#3D5AFE]">▹</span>
+                            <span className="mr-2 text-primary">▹</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -91,9 +91,9 @@ const Education = () => {
         </div>
         
         <div>
-          <h3 className="text-xl font-medium mb-6 text-[#00C9A7]">
+          <h3 className="text-xl font-medium mb-6 text-secondary">
             <div className="flex items-center gap-2">
-              <Book className="text-[#3D5AFE]" />
+              <Book className="text-primary" />
               <span>Certifications</span>
             </div>
           </h3>
@@ -118,20 +118,20 @@ const Education = () => {
                   e.currentTarget.style.borderColor = 'hsl(var(--border))';
                 }}
               >
-                <div className="mr-4 text-[#00C9A7]">
+                <div className="mr-4 text-secondary">
                   <Book size={24} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium text-[#F5F5F5]">{cert.title}</h4>
-                  <p className="text-[#00C9A7]">{cert.issuer}</p>
-                  <p className="text-[#A0A0A0] text-sm mb-2">Issued {cert.date}</p>
+                  <h4 className="text-lg font-medium text-foreground">{cert.title}</h4>
+                  <p className="text-secondary">{cert.issuer}</p>
+                  <p className="text-muted-foreground text-sm mb-2">Issued {cert.date}</p>
                   
                   {cert.credentialLink && (
                     <a 
                       href={cert.credentialLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-[#3D5AFE] hover:text-[#00C9A7] transition-colors"
+                      className="text-sm text-primary hover:text-secondary transition-colors"
                     >
                       View Credential →
                     </a>
