@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { Github, Linkedin, Twitter, Mail, Phone } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 interface FormData {
   name: string;
@@ -83,20 +85,15 @@ const Contact = () => {
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                 Your Name
               </label>
-              <input
+              <Input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                style={{
-                  background: 'var(--gradient-card)',
-                  borderColor: 'hsl(var(--border))',
-                  color: 'hsl(var(--foreground))'
-                }}
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="John Doe"
+                className="transition-all duration-300 hover:shadow-md"
               />
             </div>
             
@@ -104,20 +101,15 @@ const Contact = () => {
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
                 Email Address
               </label>
-              <input
+              <Input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                style={{
-                  background: 'var(--gradient-card)',
-                  borderColor: 'hsl(var(--border))',
-                  color: 'hsl(var(--foreground))'
-                }}
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="john.doe@example.com"
+                className="transition-all duration-300 hover:shadow-md"
               />
             </div>
             
@@ -125,20 +117,15 @@ const Contact = () => {
               <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">
                 Subject
               </label>
-              <input
+              <Input
                 type="text"
                 id="subject"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                style={{
-                  background: 'var(--gradient-card)',
-                  borderColor: 'hsl(var(--border))',
-                  color: 'hsl(var(--foreground))'
-                }}
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="Project Inquiry"
+                className="transition-all duration-300 hover:shadow-md"
               />
             </div>
             
@@ -146,20 +133,15 @@ const Contact = () => {
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
                 Message
               </label>
-              <textarea
+              <Textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
                 rows={5}
-                style={{
-                  background: 'var(--gradient-card)',
-                  borderColor: 'hsl(var(--border))',
-                  color: 'hsl(var(--foreground))'
-                }}
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-md border focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none transition-all duration-300 hover:shadow-md text-sm sm:text-base"
                 placeholder="Your message here..."
+                className="resize-none transition-all duration-300 hover:shadow-md"
               />
             </div>
             
