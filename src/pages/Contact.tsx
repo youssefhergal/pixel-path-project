@@ -5,6 +5,8 @@ import { Github, Linkedin, Twitter, Mail, Phone } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface FormData {
   name: string;
@@ -145,119 +147,87 @@ const Contact = () => {
               />
             </div>
             
-            <button
+            <Button
               type="submit"
               disabled={isSubmitting}
-              style={{ 
-                background: 'var(--gradient-primary)',
-                boxShadow: 'var(--shadow-medium)'
-              }}
-              className="w-full px-4 py-2 sm:px-6 sm:py-3 text-primary-foreground rounded-md hover:scale-105 transition-all duration-300 flex items-center justify-center text-sm sm:text-base font-medium"
+              className="w-full"
+              size="lg"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
+            </Button>
           </form>
         </div>
         
         <div className="scroll-animation" style={{ animationDelay: '0.2s' }}>
           <h3 className="section-subtitle">Connect With Me</h3>
           
-          <div 
-            className="rounded-lg p-6 border mb-8 transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              background: 'var(--gradient-card)',
-              borderColor: 'hsl(var(--border))',
-              boxShadow: 'var(--shadow-soft)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
-              e.currentTarget.style.borderColor = 'hsl(var(--primary))';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
-              e.currentTarget.style.borderColor = 'hsl(var(--border))';
-            }}
-          >
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <Mail size={24} className="mt-1 mr-4 text-secondary" />
-                <div>
-                  <h4 className="text-lg font-medium text-foreground">Email</h4>
-                  <a 
-                    href="mailto:bonjour@youssefhergal.com"
-                    className="text-muted-foreground hover:text-secondary transition-colors duration-300"
-                  >
-                    bonjour@youssefhergal.com
-                  </a>
+          <Card className="transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+            <CardContent className="p-6">
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <Mail size={24} className="mt-1 mr-4 text-primary" />
+                  <div>
+                    <h4 className="text-lg font-medium text-foreground">Email</h4>
+                    <a 
+                      href="mailto:bonjour@youssefhergal.com"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    >
+                      bonjour@youssefhergal.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <Phone size={24} className="mt-1 mr-4 text-primary" />
+                  <div>
+                    <h4 className="text-lg font-medium text-foreground">Phone</h4>
+                    <a 
+                      href="tel:+33 074539****"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    >
+                      +33 074539****
+                    </a>
+                  </div>
                 </div>
               </div>
-              
-              <div className="flex items-start">
-                <Phone size={24} className="mt-1 mr-4 text-secondary" />
-                <div>
-                  <h4 className="text-lg font-medium text-foreground">Phone</h4>
-                  <a 
-                    href="tel:+33 074539****"
-                    className="text-muted-foreground hover:text-secondary transition-colors duration-300"
-                  >
-                    +33 074539****
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
           
-          <h3 className="section-subtitle">Follow Me</h3>
+          <h3 className="section-subtitle mb-8">Follow Me</h3>
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
             {socialLinks.map((social) => (
-              <a
+              <Button
                 key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: 'var(--gradient-card)',
-                  borderColor: 'hsl(var(--border))'
-                }}
-                className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 border rounded-md hover:border-secondary hover:scale-105 transition-all duration-300 text-sm sm:text-base justify-center sm:justify-start"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                variant="outline"
+                size="lg"
+                asChild
+                className="justify-center sm:justify-start hover:scale-105 transition-all duration-300"
               >
-                <span className={`social-icon ${social.name.toLowerCase()}`}>
-                  {social.icon}
-                </span>
-                <span>{social.name}</span>
-              </a>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <span className={`social-icon ${social.name.toLowerCase()}`}>
+                    {social.icon}
+                  </span>
+                  <span>{social.name}</span>
+                </a>
+              </Button>
             ))}
           </div>
           
           <div className="mt-12">
             <h3 className="section-subtitle">Availability</h3>
-            <div 
-              className="rounded-lg p-6 border transition-all duration-300 hover:scale-[1.02]"
-              style={{
-                background: 'var(--gradient-card)',
-                borderColor: 'hsl(var(--border))',
-                boxShadow: 'var(--shadow-soft)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = 'var(--shadow-medium)';
-                e.currentTarget.style.borderColor = 'hsl(var(--primary))';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = 'var(--shadow-soft)';
-                e.currentTarget.style.borderColor = 'hsl(var(--border))';
-              }}
-            >
-              <p className="text-muted-foreground">
-                I'm currently available for freelance work, part-time positions, and internships. If you have a project 
-                that you'd like to discuss, please feel free to reach out!
-              </p>
-            </div>
+            <Card className="transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+              <CardContent className="p-6">
+                <p className="text-muted-foreground">
+                  I'm currently available for freelance work, part-time positions, and internships. If you have a project 
+                  that you'd like to discuss, please feel free to reach out!
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
