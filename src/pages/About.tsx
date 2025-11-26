@@ -149,7 +149,7 @@ const About = () => {
                     <div key={skillGroup.category}>
                       <div className="flex items-center gap-2 mb-3">
                         <span className="text-primary">{skillGroup.icon}</span>
-                        <h4 className="text-lg font-medium text-secondary hidden sm:block">{skillGroup.category}</h4>
+                        <h4 className="text-lg font-medium text-secondary">{skillGroup.category}</h4>
                       </div>
                        <div className="flex flex-wrap gap-2">
                          {skillGroup.items.map((skill) => (
