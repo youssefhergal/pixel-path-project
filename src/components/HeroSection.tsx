@@ -186,8 +186,8 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Floating Tech Icons Background - Hidden on mobile for performance */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+        {/* Floating Tech Icons Background - Now visible on all screen sizes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 md:opacity-100">
           <div className="tech-icons-wrapper">
             <TechIcons />
           </div>
