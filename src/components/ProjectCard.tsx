@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         e.currentTarget.style.borderColor = 'hsl(var(--border))';
       }}
     >
-      <div className="aspect-video w-full overflow-hidden relative">
+      <div className="aspect-video w-full overflow-hidden relative md:aspect-[16/10]">
         <div 
           className="w-full h-full flex items-center justify-center"
           style={{
@@ -63,22 +63,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div 
             className="absolute inset-0 bg-black/60 flex items-center justify-center backdrop-blur-sm group-hover:bg-black/40 transition-all duration-300"
           >
-            <div className="text-center p-6">
-              <span className="block text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">{title}</span>
-              <span className="block mt-2 text-secondary group-hover:text-primary transition-colors duration-300">Project Preview</span>
+            <div className="text-center p-4 md:p-5">
+              <span className="block text-xl md:text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">{title}</span>
+              <span className="block mt-2 text-sm md:text-base text-secondary group-hover:text-primary transition-colors duration-300">Project Preview</span>
             </div>
           </div>
         </div>
       </div>
       
-      <div className="p-6 flex flex-col flex-1">
-        <p className="text-base mb-4 text-card-foreground">{description}</p>
+      <div className="p-4 md:p-5 lg:p-6 flex flex-col flex-1">
+        <p className="text-sm md:text-base mb-3 md:mb-4 text-card-foreground line-clamp-3">{description}</p>
         
-        <div className="flex flex-wrap mb-6 flex-1">
+        <div className="flex flex-wrap mb-4 md:mb-5 lg:mb-6 flex-1">
           {techStack.map((tech) => (
             <span 
               key={tech} 
-              className="text-xs py-2 px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border h-fit"
+              className="text-xs py-1.5 md:py-2 px-2 md:px-3 rounded-lg mr-2 mb-2 inline-block hover:scale-110 transition-all duration-300 border border-border h-fit"
               style={{
                 background: 'var(--gradient-hover)',
                 color: 'hsl(var(--primary))',
