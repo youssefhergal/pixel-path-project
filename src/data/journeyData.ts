@@ -7,6 +7,7 @@ export interface JourneyItem {
   endDate: string;
   description: string[];
   technologies: string[];
+  logo?: string;
 }
 
 export const journeyData: JourneyItem[] = [
@@ -23,7 +24,8 @@ export const journeyData: JourneyItem[] = [
       "Integrated and optimized custom algorithms to tailor educational experiences",
       "Worked on the design and evaluation of adaptive learning systems"
     ],
-    technologies: ["Javascript" , "Python", "TensorFlow", "Solid Js", "Scikit-learn"]
+    technologies: ["Javascript" , "Python", "TensorFlow", "Solid Js", "Scikit-learn"],
+    logo: "/logos/companies/mines-paris.png"
   },
   {
     id: "journey4",
@@ -37,7 +39,8 @@ export const journeyData: JourneyItem[] = [
       "Developed internal APIs for user, payment, and notification systems",
       "Coordinated directly with product teams to deliver tailored solutions"
     ],
-    technologies: ["Java" , "Php" , "Javascript" , "Laravel" , "Node.js", "React.js", "MongoDB", "Spring Boot", "Docker"]
+    technologies: ["Java" , "Php" , "Javascript" , "Laravel" , "Node.js", "React.js", "MongoDB", "Spring Boot", "Docker"],
+    logo: "/logos/companies/codysoft.png"
   },
   {
     id: "journey1",
@@ -52,7 +55,8 @@ export const journeyData: JourneyItem[] = [
       "Implemented PostgreSQL and Elasticsearch for storage and querying",
       "Set up CI/CD pipelines and containerization with Docker for scalable deployment"
     ],
-    technologies: ["Java", "Spring Boot", "React.js", "PostgreSQL", "Elasticsearch", "Docker", "LangChain", "CI/CD", "ML/DL" , "API Rest"]
+    technologies: ["Java", "Spring Boot", "React.js", "PostgreSQL", "Elasticsearch", "Docker", "LangChain", "CI/CD", "ML/DL" , "API Rest"],
+    logo: "/logos/companies/ancfcc.png"
   },
   {
     id: "journey3",
@@ -66,6 +70,7 @@ export const journeyData: JourneyItem[] = [
       "Redesigned the UI for better usability and automated PDF generation",
       "Documented system architecture for future migration"
     ],
-    technologies: ["PHP", "Symfony", "MySQL", "JavaScript", "Bootstrap"]
+    technologies: ["PHP", "Symfony", "MySQL", "JavaScript", "Bootstrap"],
+    logo: "/logos/companies/zalagh.png"
   }
 ];
