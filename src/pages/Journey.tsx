@@ -36,7 +36,7 @@ const Journey = () => {
             <div className="absolute w-4 h-4 bg-primary rounded-full -left-2 mt-2 border-4 border-background hidden lg:block"></div>
             
             <div 
-              className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group"
+              className="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl border-border bg-card overflow-hidden group relative"
               style={{
                 background: 'var(--gradient-white-gray)',
                 borderColor: 'hsl(var(--border))',
@@ -51,7 +51,17 @@ const Journey = () => {
                 e.currentTarget.style.borderColor = 'hsl(var(--border))';
               }}
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              {item.logo && (
+                <div className="absolute top-6 left-6 w-12 h-12 rounded-lg overflow-hidden bg-background border border-border shadow-sm">
+                  <img 
+                    src={item.logo} 
+                    alt={`${item.company} logo`}
+                    className="w-full h-full object-contain p-1.5"
+                  />
+                </div>
+              )}
+              
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 ml-16">
                 <div>
                   <h3 className="text-xl font-medium text-card-foreground">{item.title}</h3>
                   <p className="text-lg text-secondary">{item.company} • {item.location}</p>
